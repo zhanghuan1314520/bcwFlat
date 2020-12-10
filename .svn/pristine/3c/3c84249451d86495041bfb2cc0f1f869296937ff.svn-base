@@ -1,0 +1,163 @@
+/* 搜索框 */
+.search{
+  padding: 10rpx 28rpx;
+  background-color: #804cf7;
+}
+.search input{
+  width: 486rpx;
+  border:1px solid #fff;
+  border-radius: 6px;
+  height: 30px;
+  display: inline-block;
+ padding: 0 20rpx;
+ color: #000;
+ font-size: 24rpx;
+ text-align: center;
+}
+.btn1{
+  height: 32px;
+  margin-left: 10px;
+  background-color: #804cf7;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.lists{
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(230, 124, 25);
+}
+/*  */
+.card {
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.img {
+  width: 85rpx;
+  height: 85rpx;
+}
+
+.list-table-view {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 28rpx 28rpx 0 28rpx;
+}
+
+.list-col-3 {
+  width: 334rpx;
+  height: 212rpx;
+  background-color: #fff;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+}
+
+.list_left {
+  display: flex;
+  height: 85rpx;
+  margin: 28rpx 0 0 10rpx;
+}
+.list_left_one{
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.list_left_two {
+  margin-left: 10rpx;
+}
+
+.title {
+  font-size: 25rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+}
+
+.tip {
+  display: flex;
+  font-size: 20rpx;
+  margin-top: 18rpx;
+}
+
+.list_right {
+  margin: 22rpx 70rpx 0 70rpx;
+}
+
+.btn {
+  width: 194rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  border: 1px solid #0A98E3;
+  color: #0A98E3;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 17rpx;
+}
+.btn2 {
+  width: 194rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  border: 1px solid #1ED2B2;
+  color: #1ED2B2;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 17rpx;
+}
+
+
+
+
+
+/*tab框切换*/
+.nav_tab{
+  width:100%;
+  height:100rpx;
+  display:flex;
+  flex-direction:row;
+  background-color: #fff;
+}
+.show{
+  line-height:100rpx;
+  text-align:center;
+  flex:1;
+  color:#333333;
+  font-size:30rpx;
+  /* opacity: 0.5; */
+}
+.hidden{
+  line-height:100rpx;
+  text-align:center;
+  color:#804CF7;
+  flex:1;
+  font-size:30rpx;
+  /* letter-spacing: 2rpx; */
+}
+.nav_underline{
+  background:#804CF7;
+  width:54rpx;
+  height:6rpx;
+  margin-top:-20rpx;
+  margin-left:66rpx;
+  border-radius:8rpx;
+  text-align: center;
+}
+
+
+
+.img1{
+  width: 277rpx;
+  height: 268rpx;
+}
+.selected{
+  width: 694rpx;
+  height: 400rpx;
+  text-align: center;
+  margin-top: 196rpx;
+}
+.tip1{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #804CF7;
+  font-weight: 600;
+  padding-left: 40rpx;
+}

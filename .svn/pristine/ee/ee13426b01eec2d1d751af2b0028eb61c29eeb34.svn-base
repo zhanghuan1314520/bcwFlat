@@ -1,0 +1,81 @@
+<van-tabs active="{{ active }}" bind:change="onChange"  title-active-color="#804CF7" color="#804CF7">
+  <van-tab title="系统应用">
+    <!-- 系统应用开始 -->
+    <view class="card radius" wx:for="{{lists}}" wx:for-item="item" wx:key="id">
+      <view class="card_left">
+        <view class="left_one">
+          <image class="img" src="../../images/img2.jpg" mode="aspectFill" />
+        </view>
+        <view class="left_two">
+          <view class="title">{{item.appName}}</view>
+          <view class="tip">
+            <!-- <view class="name">{{item.status==1?"已显示":"未显示"}}</view> -->
+            <view class="name" style="color:#28AC39" wx:if="{{item.status==0}}">待显示</view>
+            <view class="name" style="color:#F67651"  wx:elif="{{item.status==1}}">已显示</view>
+            <view class="m">{{item.fileSize}}M</view>
+          </view>
+        </view>
+      </view>
+      <view class="card_right">
+          <switch color="#804CF7" data-id="{{item.id}}" bindchange="onChange1"  checked="{{switch1Checked}}"/>
+      </view>
+    </view>
+    <!-- 系统应用结束 -->
+  </van-tab>
+  <!-- 第三方应用开始 -->
+  <van-tab title="第三方应用">
+    <view class="card1 radius" wx:for="{{Tripartite}}" wx:for-item="item" wx:key="id">
+      <view class="card_list_one">
+        <view class="card_left1">
+          <view class="left_one">
+            <image class="img" src="../../images/img2.jpg" mode="aspectFill" />
+          </view>
+          <view class="left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#28AC39' wx:if="{{item.status==0}}">已</view>
+              <view style='color:#F67651' wx:elif="{{item.status==1}}" >{{item.status}}</view>
+              <view class="m">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="card_right1">
+          <view wx:if="{{item.pushStatus==0}}">
+            <view class="btn" bindtap="push" data-id="{{ item.id }}" data-name="{{item.appName}}">推送至平板</view>
+          </view>
+         <view wx:else="{{item.pushStatus==1}}">
+          <view class="btn1"  bindtap="uninstall" data-id="{{ item.id }}" data-name="{{item.appName}}">从平板卸载</view>
+         </view>
+        </view>
+      </view>
+      <view class="card_list_two">
+        <view class="list_left">设置使用时间段</view>
+        <view class="list_right">
+          <switch color="#804CF7" data-id="{{item.id}}" bindchange="switch1Change"  checked="{{switch1Checked}}"/>
+        </view>
+      </view>
+      <view class="time" wx:if="{{shows==true}}">
+        <view class="times common">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" name="time">
+              <view class="picker">
+                {{time}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="br">——</view>
+        <view class="times1 common">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1" name="time">
+              <view class="picker">
+                {{time1}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 第三方应用结束 -->
+</van-tabs>

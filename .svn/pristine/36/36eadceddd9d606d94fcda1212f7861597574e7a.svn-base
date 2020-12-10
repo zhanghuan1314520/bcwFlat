@@ -1,0 +1,37 @@
+function status(id) {
+  var statusJson = {};
+  var x = "";
+  var y = "";
+ 
+
+  // pushStatus (integer): 状态(0:全部,1:已推送,2:已安装,3:待卸载(卸载中),4:已卸载) ,
+        // 不显示按钮   1:已推送(#000000), 
+        //显示按钮    从平板卸载   2:已安装(#28AC39)
+        //显示按钮    推送至平板    3  待推送(#F67651)   4:已卸载(#E92E2F)
+
+  switch (id) {
+    case 0:
+      x = "已推送";
+      y = "#E92E2F";
+      break;
+    case 1:
+      x = "已安装";
+      y = "#28AC39";
+      break;
+    case 2:
+      x = "待推送";
+      y = "#F67651";
+      break;
+    case 3:
+      x = "已卸载";
+      y = "#E92E2F";
+      break;
+  }
+  statusJson.x = x;
+  statusJson.y = y;
+  return statusJson;
+}
+
+module.exports = {
+  status: status
+}

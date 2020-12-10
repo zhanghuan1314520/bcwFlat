@@ -1,0 +1,181 @@
+// pages/password/password.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    localPhone:"",
+    oldpwd: "",
+    newpwd: "",
+    newpwd2: ""
+  },
+  formSubmit: function (e) {
+    var that = this;
+    var localPhone = wx.getStorageSync('localPhone');
+    console.log("phone",localPhone)
+    if (that.data.oldpwd == '') {
+      wx.showToast({
+        title: '请输入原始密码!',
+        icon: "none",
+        duration: 2000,
+        mask:true
+      })
+    } 
+     else if (that.data.newpwd == '') {
+      wx.showToast({
+        title: '请输入新密码!',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+    } else if (that.data.newpwd2 == '') {
+      wx.showToast({
+        title: '请您确认密码!',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+    }
+    else if (that.data.newpwd != that.data.newpwd2) {
+      wx.showToast({
+        title: '两次输入不一致',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+    } else {
+        
+        let version = __wxConfig.envVersion;
+        let axiosurl;
+        switch (version) {
+          case "develop": //开发预览版
+            axiosurl = "https://1z74t80660.51mypc.cn";
+            break;
+          case 'trial': //体验版
+            axiosurl = "https://1z74t80660.51mypc.cn";
+            break;
+          // break;
+          case 'release': //正式版
+            axiosurl = "https://wx.bucuonet.com";
+            break;
+          default: //未知,默认调用正式版
+            axiosurl = "https://wx.bucuonet.com";
+            break;
+        }
+    	
+      wx.request({
+        url: axiosurl + '/bcapi/api/ipad/padManageUserParent/changePassword',
+        data:{
+          localPhone:localPhone,
+          oldPassword:that.data.oldpwd,
+          newPassword:that.data.newpwd,
+          passwordAgain:that.data.newpwd2
+        },
+        header:{
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        method: 'POST',
+        success: (res) => {
+          console.log("1111111111",res.data);
+          if(res.data.code == 1101){
+            wx.showToast({
+              title: '账号与原密码不匹',
+              icon: "none",
+              duration: 2000
+            })
+          }
+          else if (res.data.code == 101) {
+            wx.showToast({
+              title: "手机号不能为空",
+              icon: 'none',
+              duration: 2000,
+              mask: true
+            })
+          } else {
+            wx.showToast({
+              title: "修改成功",
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () {
+                setTimeout(function () {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                }, 2000)
+              }
+            })
+          }
+
+        }
+      })
+    }
+
+  },
+
+  oldpwdInput: function (e) {
+    this.data.oldpwd = e.detail.value
+  },
+  newpwdInput: function (e) {
+    this.data.newpwd = e.detail.value
+  },
+  newpwd2Input: function (e) {
+    this.data.newpwd2 = e.detail.value
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

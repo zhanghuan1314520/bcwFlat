@@ -1,0 +1,11 @@
+<view wx:if="{{1==1}}">
+  <map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" bindcontroltap="controltap"
+    markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location
+    style="width: 100%; height:{{MapHeight}};">
+    <!-- <cover-image class="back_img" src="../../images/map.png" bindtap="moveTolocation"></cover-image> -->
+  </map>
+</view>
+<view wx:else class="selected">
+  <image class="img1" src="../../images/sb.png" mode="scaleToFill" lazy-load />
+  <view class="tip">设备当前不在线，请检查重试!</view>
+</view>

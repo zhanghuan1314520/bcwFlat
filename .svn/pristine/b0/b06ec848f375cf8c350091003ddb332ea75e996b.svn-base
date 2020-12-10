@@ -1,0 +1,27 @@
+/**app.wxss**/
+page{
+  background-color:#dfe1fd;
+}
+/* /swtich整体大小及背景色/ */
+.wx-switch-input {
+  width: 100rpx !important;
+  height: 44rpx !important;
+  background: #804CF7 !important;
+  border: #804CF7 !important;
+  box-sizing: border-box;
+}
+
+/* /白色样式（false的样式）/ */
+.wx-switch-input::before {
+  width: 100rpx !important;
+  height: 44rpx !important;
+  background: #ccc !important;
+  border: #ccc !important;
+  box-sizing: border-box;
+}
+
+/* /绿色样式（true的样式）/ */
+.wx-switch-input::after {
+  width: 65rpx !important;
+  height: 44rpx !important;
+}

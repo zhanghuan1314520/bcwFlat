@@ -1,0 +1,7 @@
+<view class="content1">
+  <view>
+    <view class="title">平板当前的画面</view>
+    <view wx:for="{{imglist}}" wx:key="id"></view>
+    <image class="img"  src="https://pswanmor.edu505.com/api/{{imgPath}}"  mode="scaleToFill"  lazy-load/>
+  </view>
+</view>

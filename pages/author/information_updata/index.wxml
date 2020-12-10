@@ -1,0 +1,13 @@
+<!--pages/author/information_updata/index.wxml-->
+<view class="content">
+  <view>
+    <van-cell-group>
+      <!-- <van-cell title="修改家长信息" is-link url="/pages/author/parent_information/index" />
+      <van-cell title="修改密码" is-link url="/pages/author/change_password/index" />
+      <van-cell title="家长二维码" is-link url="/pages/author/code/index" /> -->
+    </van-cell-group>
+  </view>
+  <view class="code">
+    <image class="img" src="../../../images/code.png" />
+  </view>
+</view>

@@ -1,0 +1,48 @@
+<view class="content">
+  <!-- 注册部分开始 -->
+  <view class='reg'>
+    <form>
+      <!-- 手机号 -->
+      <view class="content_form">
+        <view class="content_form_one">
+          <image class="img" src="../../images/111/hz.png" />
+        </view>
+        <view class="content_form_two"><input type="number" name="phone" maxlength="11" placeholder="请输入11位手机号" />
+        </view>
+      </view>
+      <!-- 验证码 -->
+      <view class="content_form">
+        <view class="content_form_one">
+          <image class="img" src="../../images/111/hz.png" />
+        </view>
+        <view class="mod t-name" style='position:relative'>
+          <input type="digit" bindinput="bindKeyInput" data-inputname="phoneCode" value='{{phoneCode}}' class="input"
+            maxlength="100" placeholder="请输入手机验证码" />
+          <text class='logbook'></text>
+          <text class='getkey' bindtap="clickGainCode">{{tipsCode}}</text>
+        </view>
+      </view>
+      <!-- 设置密码 -->
+      <view class="content_form">
+        <view class="content_form_one">
+          <image class="img" src="../../images/111/hz.png" />
+        </view>
+        <view class="content_form_two"><input type="number" password placeholder="请设置密码" /></view>
+      </view>
+      <!-- 确认密码 -->
+      <view class="content_form">
+        <view class="content_form_one">
+          <image class="img" src="../../images/111/hz.png" />
+        </view>
+        <view class="content_form_two"><input type="number" password placeholder="请再次输入密码" /></view>
+      </view>
+    </form>
+  </view>
+  <!-- 注册部分结束 -->
+</view>
+<!-- <view class="btn1">
+  <button style="width:400rpx;">确认修改</button>
+</view> -->
+<view class="btn">
+  <van-button round type="info" block bindtap="login">注册并登录</van-button>
+</view>

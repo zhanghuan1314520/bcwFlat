@@ -1,0 +1,76 @@
+/* pages/author/device_information/index.wxss */
+.container {
+  background: -webkit-linear-gradient(top,#804CF7,#804CF7,#DEE0FE);
+  width: 100%;
+  height: 100%;
+  padding-top: 50rpx;
+}
+.content {
+  margin: 0 28rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+
+.item {
+  display: flex;
+  padding: 10rpx;
+}
+
+.item_right1 {
+  border-radius: 50rpx;
+  overflow: hidden;
+  background-color: rgb(211, 155, 155);
+}
+.item_left1 {
+  font-size: 32rpx;
+  margin-left: 20rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+  padding-top: 5rpx;
+}
+
+.item_right {
+  flex: 1;
+  align-self: center;
+  padding: 23rpx 0;
+  font-size: 32rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+}
+
+.item_left {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  font-size: 30rpx;
+  color: #B4B4B4;
+}
+.time_two{
+  padding-top: 29rpx;
+}
+.img1{
+  width: 33rpx;
+  height: 33rpx;
+}
+.img2{
+  width: 50rpx;
+  height: 45rpx;
+}
+
+.btn {
+  position: absolute;
+  margin: 0 45rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+ padding-top: 104rpx;
+ font-size: 32rpx;
+}
+.btn >button{
+background-color: #804CF7;
+font-weight: bold;
+color: #fff;
+font-size: 36rpx;
+border-radius: 38rpx;
+}
+

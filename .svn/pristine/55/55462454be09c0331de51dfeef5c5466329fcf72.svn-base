@@ -1,0 +1,248 @@
+// pages/administration/index.js
+import { request } from "../../request/index.js";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    active: 0, //tab切换
+    shows: false,
+    lists: [],   // 系统应用
+    Tripartite: [], //第三方应用
+    arrayIndex: 0,   //时间段选择
+    time: '设置开始时间',
+    time1: '设置结束时间',
+    lockStatusParam: 0,
+    switch1Checked: false,
+    learn: [],
+    categoryId: "",
+    pushStatus: 0,
+    lockStatusParams: 0
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    this.getlists();            //平板应用列表type1
+    this.getTripartite();       //平板应用列表type1
+    this.getlearn();            //修改已安装应用可用时间
+    let oper_mac = wx.getStorageSync('oper_mac')
+    //平板应用控制状态
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/queryDeviceConfig?mac=20:75:5B:39:01:3F',
+      success: (res) => {
+        console.log("++++++++++查询平板应用控制状态+++++++++", res);
+        console.log("++++++++++tabletAppStatus+++++++++", res.data.data.tabletAppStatus);
+      }
+    })
+  },
+  //获取系统应用列表1.1
+  getlists() {
+    let oper_mac = wx.getStorageSync('oper_mac')
+    request({ url: "/tabletApp/queryTabletAppListByMac?mac=20:75:5B:39:01:3F&type=1" })
+      .then(result => {
+        console.log("+++++++++++++++++type:1+++++++++++++++", result.data)
+        this.setData({
+          lists: result.data
+        })
+      })
+  },
+  //获取第三方应用列表1.2
+  getTripartite() {
+    let oper_mac = wx.getStorageSync('oper_mac')
+    request({ url: "/tabletApp/queryTabletAppListByMac?mac=20:75:5B:39:01:3F&type=2" })
+      .then(result => {
+        console.log("+++++++++++++++++type:2+++++++++++++++", result.data)
+        this.setData({
+          Tripartite: result.data
+        })
+      })
+  },
+  //**************系统应用type1开关部分开始**********************
+  onChange1: function (e) {
+    var that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("+++++++++++++++++++++++id++++++++++++++++++++", id)
+    console.log("++++++++++++++++value+++++++++++++++++++", e.detail.value);
+    if (e.detail.value == true) {
+      this.lockStatusParam = 1
+    } else {
+      this.lockStatusParam = 0
+    }
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/tabletApp/updateStatus',
+      method: "POST",
+      data: { status: this.lockStatusParam, id: e.currentTarget.dataset.id },
+      success: (result) => {
+        console.log("+++++++++++++++++++++++++控制系统应用1+++++++++++++++++++++", result.data)
+        that.onLoad();
+        wx.showToast({
+          title: '设置成功',
+          icon: "none",
+          mask: true
+        })
+      }
+    })
+    this.setData({
+      shows: e.detail.value
+    });
+  },
+  //**************系统应用type1开关部分结束*************
+  //**************系统应用type2开关部分开始*********************
+  onChange2: function (e) {
+    var that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("+++++++++++++++++++++++id++++++++++++++++++++", id)
+    console.log("++++++++++++++++value+++++++++++++++++++", e.detail.value);
+    if (e.detail.value == true) {
+      this.lockStatusParam = 1
+    } else {
+      this.lockStatusParam = 0
+    }
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/tabletApp/updateStatus',
+      method: "POST",
+      data: { status: this.lockStatusParam, id: e.currentTarget.dataset.id },
+      success: (result) => {
+        console.log("+++++++++++++++++++++++++控制系统应用1+++++++++++++++++++++", result.data)
+        that.onLoad();
+        wx.showToast({
+          title: '设置成功',
+          icon: "none",
+          mask: true
+        })
+      }
+    })
+    this.setData({
+      shows: e.detail.value
+    });
+  },
+  //**************系统应用type1开关部分开始**********************
+  //时间段选择
+  bindTimeChange: function (e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  bindTimeChange1: function (e) {
+    this.setData({
+      time1: e.detail.value
+    })
+  },
+  /* *************修改已安装应用可用时间部分开始*********** */
+
+
+
+  getlearn() {
+    let oper_mac = wx.getStorageSync('oper_mac')
+    request({ url: "/appDevice/queryMyAppDevice", data: { appName: this.appName, categoryId: this.categoryId, mac: oper_mac, pushStatus: this.data.pushStatus, searchType: 1 }, method: "POST" })
+      .then(result => {
+        console.log("-------列表数据--", result.data)
+        this.setData({
+          learn: result.data
+        })
+      })
+  },
+
+  switch1Change: function (e) {
+    console.log("+++++++++++++++++++第三方应用开关控制部分+++++++++++++", e)
+    console.log(e.detail.value)
+    if (e.detail.value == true) {
+      this.lockStatusParams = 0
+    } else {
+      this.lockStatusParams = 1
+    }
+    this.setData({
+      shows: e.detail.value
+    });
+    setTimeout(() => {
+      wx.showToast({
+        title: '设置成功',
+        icon: "none",
+        duration: 2000,
+        mask: true,
+        success: function () { },
+        fail: function () { }
+      })
+    }, 1000)
+  },
+
+  /* *************修改已安装应用可用时间部分结束*********** */
+
+  //*************卸载平板部分开始****************************** */
+  del: function (e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("================id==========",id)
+    let oper_mac = wx.getStorageSync('oper_mac')
+    wx.request({
+      // 推送api
+      url: 'https://pswanmor.edu505.com/api/appDevice/uninstall',
+      data: {
+        appId: e.currentTarget.dataset.id, mac: "20:75:55:39:01:42"
+      },
+      method: 'POST',
+      success: function (res) {
+        that.onLoad();
+        wx.showToast({
+          title: '操作成功',
+          icon: "none",
+          mask: true
+        })
+      }
+    })
+  },
+  //*************卸载平板部分结束****************************** */
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

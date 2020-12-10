@@ -1,0 +1,53 @@
+<view class="content">
+  <view class="item">
+    <view class="item_right">MAC</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="20:72:0D：39:01:3E" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">姓名</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请输入姓名" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">性别</view>
+    <view class="item_left">
+      <view>
+        <action-sheet bindchange="actionSheetChange" hidden="{{actionType}}">
+          <block wx:for="{{actionSheetItems}}" wx:key="*this">
+            <action-sheet-item class="item1" bindtap="bindItemTap" data-name="{{item}}">
+              {{item}}
+            </action-sheet-item>
+          </block>
+          <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+        </action-sheet>
+      </view>
+      <view>
+        <input type="text" name="type" value="{{addTypeData}}" disabled="{{addTypeDis}}" bindfocus="addType"
+          placeholder="男" />
+      </view>
+    </view>
+    <view class="time_two">
+      <image class="img1" src="../../../images/jt.png" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">学号</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请输入学号" />
+    </view>
+  </view>
+</view>
+
+<!--按钮 -->
+<view class="btn">
+  <van-button round type="info" block>提交</van-button>
+</view>
+
+
+
+
+
+

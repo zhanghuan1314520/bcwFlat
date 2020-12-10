@@ -1,0 +1,196 @@
+// pages/journal/index.js
+import { request } from "../../request/index.js";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    login: true,
+    showDialog: false,
+    items: [
+      { name: '最近一周', value: '7' },
+      { name: '最近一月', value: '30' },
+      { name: '最近三月', value: '90' },
+    ],
+    records: [], // 记录
+    Statistics: [], // 统计
+    pageNum:1,
+    pageSize:55,
+    day: 1
+  },
+  /*点击变色*/
+  click: function (e) {
+    var id = e.currentTarget.dataset.id
+    var that = this
+    that.setData({
+      id: id
+    })
+  },
+  // tab切换
+  record: function () {
+    this.setData({
+      login: true
+    });
+    this.getrecords();
+  },
+  statistics: function (e) {
+    this.setData({
+      login: false
+    });
+    this.getStatistics();
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      value: '最近一周'
+    })
+    this.getrecords();
+
+  },
+  // 获取记录数据列表
+  getrecords() {
+    let oper_mac= wx.getStorageSync('oper_mac')
+    console.log("oper_mac----:", oper_mac)
+    let day = this.data.day
+    console.log("day", day)
+  request({ url: "/studentLog/page?day="+ day +"&mac="+oper_mac,data:{pageNum:this.data.pageNum,pageSize:this.data.pageSize}})
+      .then(result => {
+        console.log("记录列表数据",result.data);
+        this.setData({
+          records: result.data.list
+        })
+      })
+  },
+  // 获取统计数据列表
+  getStatistics() {
+    let oper_mac= wx.getStorageSync('oper_mac')
+    let day = this.data.day
+    request({ url: "/studentLog/listStatistics?day="+ day +"&mac="+ oper_mac })
+      .then(result => {
+        console.log("统计列表数据",result.data);
+        this.setData({
+          Statistics: result.data
+        })
+      })
+  },
+  //时间段选择
+  bindPickerChange: function (e) {
+    console.log(e);
+    console.log('当前选择的值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    var that = this
+    if(e.detail.value==7){
+      that.setData({
+        value: '最近一周'
+      })
+      that.data.day=e.detail.value
+      console.log("that.data.day:", that.data.day)      
+    } else if(e.detail.value==30){
+      that.setData({
+        value: '最近一月'
+      })
+      that.data.day=e.detail.value
+      console.log("that.data.day:", that.data.day)  
+    } else if(e.detail.value==90){
+      that.setData({
+        value: '最近三月'
+      })
+      that.data.day=e.detail.value
+      console.log("that.data.day:", that.data.day)  
+    }
+  },
+  toggleDialog() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
+  },
+  freeBack: function (e) {
+    var that = this
+    that.setData({
+      showDialog: !this.data.showDialog
+    })
+
+    wx.showToast({
+      title: '确定成功',
+      icon:"none",
+      mask:false
+    })
+  },
+  freetoBack: function () {
+    var that = this
+    wx.showToast({
+      title: '取消成功',
+      icon:"none"
+    })
+    that.setData({
+      showDialog: !this.data.showDialog,
+      value: '最近一周',
+      checked: false,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("上拉触底")
+    request({ url: "/studentLog/page?day=30"+"&mac="+app.globalData.mac,data:{pageNum:++this.data.pageNum,pageSize:this.data.pageSize}})
+    .then(result => {
+      console.log("记录列表数据",result.data);
+      this.setData({
+        records: result.data.list
+      })
+    })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

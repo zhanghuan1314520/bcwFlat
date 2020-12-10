@@ -1,0 +1,48 @@
+<view class="content">
+  <view class="item">
+    <view class="item_right">头像</view>
+    <view class="item_left">
+      <image class="img" src='{{personImage}}' bindtap='changeAvatar' /> 
+      <!-- <image class="img" src='../../../images/img2.jpg' /> -->
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">昵称</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请输入昵称" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">性别</view>
+    <view class="item_left">
+      <view>
+        <action-sheet bindchange="actionSheetChange" hidden="{{actionType}}">
+          <block wx:for="{{actionSheetItems}}" wx:key="*this">
+            <action-sheet-item class="item1" bindtap="bindItemTap" data-name="{{item}}">
+              {{item}}
+            </action-sheet-item>
+          </block>
+          <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+        </action-sheet>
+      </view>
+      <view>
+        <input type="text" name="type" value="{{addTypeData}}" disabled="{{addTypeDis}}" bindfocus="addType"
+          placeholder="女" />
+      </view>
+    </view>
+    <view class="time_two">
+      <image class="img1" src="../../../images/jt.png" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">邮箱</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请输入邮箱" />
+    </view>
+  </view>
+</view>
+
+<!--按钮 -->
+<view class="btn">
+  <van-button round type="info" block>确认修改</van-button>
+</view>

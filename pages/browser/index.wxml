@@ -1,0 +1,47 @@
+<view class="content" wx:if="{{oper_mac!=null}}">
+  <view class="nav radius">
+    <view class="nav_top">
+      <view class="top_list">
+        <view class="top_title">浏览器控制</view>
+        <view class="top_btn">
+          <view class="body-view">
+            <switch bindchange="switch1Change" checked="{{switch1Checked1}}"/>
+          </view>
+        </view>
+      </view>
+      <view class="tip">控制状态打开:浏览器上网时间段家长设定</view>
+      <view class="tip">控制状态关闭:上网策略学校确定,默认禁止上网</view>
+    </view>
+    <view class="nav_button" wx:if="{{shows==true}}">
+      <view class="name">浏览器上网时间段</view>
+      <view class="time">
+        <view class="time_one one">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" name="time">
+              <view class="picker">
+                {{timeLockStartTime}}
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="br">—</view>
+
+        <view class="time_two one">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1" name="time">
+              <view class="picker">
+                {{timeLockEndTime}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="selected">
+      <image class="img1" src="../../images/sb.png" mode="scaleToFill" lazy-load />
+      <view class="tip1">请绑定孩子平板,再浏览应用</view>
+    </view>

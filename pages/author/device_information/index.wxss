@@ -1,0 +1,91 @@
+/* pages/author/device_information/index.wxss */
+.header_list{
+  margin: 0 28rpx;
+}
+.list_img1{
+  width: 34rpx;
+  height: 29rpx;
+}
+.list_img2{
+  width: 51rpx;
+  height: 51rpx;
+}
+.list_img3{
+  width: 30rpx;
+  height: 30rpx;
+}
+.header_title{
+  display: flex;
+ margin-top: 37rpx;
+  font-size: 34rpx;
+  color: #1E1E1E;
+  font-weight: bold;
+}
+.header_title_right{}
+.header_title_left{
+  margin-left: 20rpx;
+}
+/* 2 */
+.content_list{
+  margin-top: 37rpx;
+  display: flex;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 0;
+  flex-direction: column;
+}
+/* 2.1 */
+.content_box_one{
+  display: flex;
+  padding: 0 40rpx;
+  font-size: 24rpx;
+  padding-bottom: 10rpx;
+  align-items: center;
+  border-bottom: 1px solid #DCDCDC;
+}
+.name{
+  width: 280rpx;
+  margin-left: 15rpx;
+  margin-top:-7rpx;
+  color: #1E1E1E;
+  font-weight: 600;
+}
+.gender{
+  width: 55rpx;
+  margin-left: 15rpx;
+  margin-top:-7rpx;
+  color: #B3B3B3;
+}
+.studentCode{
+  width: 255rpx;
+  margin-left: 15rpx;
+  margin-top:-7rpx;
+  color: #B3B3B3;
+}
+/* 2.1 */
+.content_box_two{
+  display: flex;
+  margin: 20rpx 40rpx 0 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img1{
+  width: 277rpx;
+  height: 268rpx;
+}
+.selected{
+  width: 694rpx;
+  height: 400rpx;
+  text-align: center;
+  margin-top: 196rpx;
+}
+.tip{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #804CF7;
+  font-weight: 600;
+  padding-left: 40rpx;
+}

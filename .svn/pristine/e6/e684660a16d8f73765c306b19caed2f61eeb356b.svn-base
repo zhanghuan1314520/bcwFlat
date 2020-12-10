@@ -1,0 +1,21 @@
+// pages/author/about/index.js
+Page({
+  data: {
+    contents:'012-34567'
+  },
+  copyText: function (e) {
+    console.log(e)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '已复制客服热线！'
+            })
+          }
+        })
+      }
+    })
+  },
+})

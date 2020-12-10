@@ -1,0 +1,247 @@
+// pages/administration/index.js
+import { request } from "../../request/index.js";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    active: 0, //tab切换
+    shows: false,
+    lists: [],   // 系统应用
+    Tripartite: [], //第三方应用
+    arrayIndex: 0,   //时间段选择
+    time: '设置开始时间',
+    time1: '设置结束时间',
+    lockStatusParam: 0,
+    switch1Checked: false
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    this.getlists();
+    this.getTripartite();
+  },
+  //获取系统应用列表
+  getlists() {
+    let oper_mac = wx.getStorageSync('oper_mac')
+    request({ url: "/tabletApp/queryTabletAppListByMac?mac=20:75:55:39:01:42&type=1" })
+      .then(result => {
+        // if (result.data[0].status == 0) {
+        //   result.data[0].status = "待显示"
+        // } else if (result.data[0].status == 1) {
+        //   result.data[0].status = "已显示"
+        // }
+        console.log("++++++", result.data)
+        console.log("系统应用++++++++++++++++++平板应用列表", result.data[0].status);
+        this.setData({
+          lists: result.data
+        })
+      })
+  },
+  //获取第三方应用列表
+  getTripartite() {
+    let oper_mac = wx.getStorageSync('oper_mac')
+    request({ url: "/tabletApp/queryTabletAppListByMac?mac=20:75:55:39:01:42&type=2" })
+      .then(result => {
+        console.log("第三方应用的数据", result);
+        this.setData({
+          Tripartite: result.data
+        })
+      })
+  },
+  //系统应用开关部分
+  onChange1: function (e) {
+    var that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log(id);
+    // status状态(0:隐藏,1:显示
+    console.log(e.detail.value);
+    if (e.detail.value == true) {
+      this.lockStatusParam = 0
+    } else {
+      this.lockStatusParam = 1
+    }
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/tabletApp/updateStatus',
+      method: "POST",
+      data: { status: this.lockStatusParam, id: e.currentTarget.dataset.id },
+      success: (result) => {
+        that.onLoad();
+        console.log("修改锁屏状态", result.data);
+        setTimeout(() => {
+          wx.showToast({
+            title: '设置成功',
+            icon: "none",
+            mask: true,
+            duration: 2000
+          })
+        }, 1000)
+      }
+    })
+    this.setData({
+      shows: e.detail.value
+    });
+  },
+  //时间段选择
+  bindTimeChange: function (e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  bindTimeChange1: function (e) {
+    this.setData({
+      time1: e.detail.value
+    })
+  },
+  // 第三方应用开关控制部分
+  switch1Change: function (e) {
+    console.log("+++++++++++++++++++第三方应用开关控制部分+++++++++++++", e)
+    console.log(e.detail.value)
+    if (e.detail.value == true) {
+      this.lockStatusParam = 0
+    } else {
+      this.lockStatusParam = 1
+    }
+    this.setData({
+      shows: e.detail.value
+    });
+    setTimeout(() => {
+      wx.showToast({
+        title: '设置成功',
+        icon: "none",
+        duration: 2000,
+        mask: true,
+        success: function () { },
+        fail: function () { }
+      })
+    }, 1000)
+  },
+
+
+  push: function (e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("++++++push+++++++++++++++++", id)
+    let appName = e.currentTarget.dataset.name;
+    let oper_mac = wx.getStorageSync('oper_mac')
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定推送' + e.target.dataset.name + '至平板吗？',
+      showCancel: true,
+      cancelText: "取消",
+      cancelColor: "#030303",
+      confirmText: "确定",
+      confirmColor: "#804CF7",
+      success: function (res) {
+        if (res.confirm) {
+          wx.request({
+            // 推送api
+            url: 'https://pswanmor.edu505.com/api/appDevice/push',
+            data: {
+              appId: e.currentTarget.dataset.id, mac: "20:75:55:39:01:42"
+            },
+            method: 'POST',
+            success: function (res) {
+              that.onLoad();
+              wx.showToast({
+                title: '操作成功',
+                icon: "none"
+              })
+            }
+          })
+        } else if (res.cancel) {
+        }
+      }
+    })
+  },
+
+  uninstall: function (e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("+++++++++++uninstall++++++++++++", id)
+    let appName = e.currentTarget.dataset.name;
+    let oper_mac = wx.getStorageSync('oper_mac')
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定把' + e.target.dataset.name + '从平板卸载吗？',
+      showCancel: true,
+      cancelText: "取消",
+      cancelColor: "#030303",
+      confirmText: "确定",
+      confirmColor: "#804CF7",
+      success: function (res) {
+        if (res.confirm) {
+          wx.request({
+            // 推送api
+            url: 'https://pswanmor.edu505.com/api/appDevice/uninstall',
+            data: {
+              appId: e.currentTarget.dataset.id, mac: "20:75:55:39:01:42"
+            },
+            method: 'POST',
+            success: function (res) {
+              that.onLoad();
+              wx.showToast({
+                title: '操作成功',
+                icon: "none",
+                mask: true
+              })
+            }
+          })
+        } else if (res.cancel) {
+        }
+      }
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

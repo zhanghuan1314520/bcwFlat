@@ -1,0 +1,11 @@
+<view class="container2">
+  <view class="content radius">
+    <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
+
+    <view style="display: flex;align-items: center;justify-content: center;">体验版
+  </view>
+  </view>
+
+
+</view>
+

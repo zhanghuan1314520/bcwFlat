@@ -1,0 +1,168 @@
+.card {
+  margin: 28rpx 28rpx 40rpx 28rpx;
+  display: flex;
+  padding: 30rpx 28rpx;
+  background-color: #fff;
+}
+
+.card_left {
+  display: flex;
+  flex: 10;
+  height: 97rpx;
+}
+
+.card_right {
+  flex: 1;
+  align-items: center;
+  padding-top: 25rpx;
+}
+
+.img {
+  width: 97rpx;
+  height: 97rpx;
+}
+
+.left_one {
+  height: 97rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.left_two {
+  flex: 8;
+  align-items: center;
+  margin-left: 24rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+  letter-spacing:3px;
+}
+
+.tip {
+  margin-top: 30rpx;
+  font-size: 20rpx;
+  display: flex;
+}
+
+.name {
+  color: #28AC3A;
+}
+
+.m {
+  margin-left: 15rpx;
+  color: #666666;
+}
+
+.card1 {
+  height: auto;
+  margin: 27rpx 28rpx 40rpx 28rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx 28rpx 10rpx 28rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.card_left1 {
+  display: flex;
+  flex: 4;
+}
+
+.card_right1 {
+  height: 97rpx;
+}
+
+.btn {
+  width: 194rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #1FD2B3;
+  text-align: center;
+  border-radius: 17rpx;
+  border: 1px solid #1FD2B3;
+  margin: 26rpx 0;
+  font-size: 24rpx;
+}
+.btn1 {
+  width: 194rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #804cf7;
+  text-align: center;
+  border-radius: 17rpx;
+  border: 1px solid #804cf7;
+  margin: 26rpx 0;
+  font-size: 24rpx;
+}
+
+.card_list_one {
+  display: flex;
+  height: 97rpx;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20rpx;
+}
+
+.card_list_two {
+  display: flex;
+  height: 44rpx;
+  margin: 32rpx 0 10rpx 0;
+}
+
+.list_left {
+  flex: 6;
+  font-size: 28rpx;
+  color: #1F1F1F;
+  align-self: center;
+  font-weight: bold;
+}
+
+.list_right {
+  flex: 2;
+  width: 100rpx;
+  height: 50rpx;
+  align-self: center;
+  text-align: right;
+}
+
+.time {
+  display: flex;
+  margin: 20rpx 0;
+  color: #804CF8;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.time_title {
+  flex: 1;
+  padding: 0 20rpx;
+  align-self: center;
+}
+
+.times {
+  flex: 1;
+}
+.times1 {
+  flex: 1;
+}
+.common{
+  height: 52rpx;
+ line-height: 52rpx;
+ border-radius: 10rpx;
+ border: 1px solid #804CF7;
+ text-align: center;
+}
+.br{
+  left: h
+  ;
+  height: 52rpx;
+  line-height: 52rpx;
+  color: #804CF7;
+  padding: 0 5rpx;
+}
+
+.time_two {
+  flex: 1;
+}

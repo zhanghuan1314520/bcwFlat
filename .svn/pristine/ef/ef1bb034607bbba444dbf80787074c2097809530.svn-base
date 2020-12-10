@@ -1,0 +1,119 @@
+<view class="content">
+  <view class="time">
+    <view class="time_one" bindtap="toggleDialog">
+      <!-- <picker name="areaPicker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">{{array[index]}}</view>
+        </picker> -->
+      {{value}}
+    </view>
+    <view class="time_two">
+      <image class="img" src="../../images/jt_top.png" />
+    </view>
+  </view>
+  <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+    <view class="free-dialog__mask" bindtap="toggleDialog" />
+    <view class="free-dialog__container">
+      <view class="aaa">
+        <form bindsubmit='submit'>
+          <view bindtap='freetoBack' class="free-button free-dialog-reset">取消</view>
+          <view bindtap='freeBack' class="free-button free-dialog-submit">确定</view>
+
+          <radio-group class='free-radios' bindchange="radioChange">
+            <label class="free-radio" bindtap="click" wx:for="{{items}}" wx:key="items" data-id="{{index}}"
+              style="{{index==id?'background:#824EF6;color:#fff;':'background:#fff;color:#824EF6;'}}">
+              <radio value="{{item.name}}" name="{{item.value}}"></radio>
+              <label class="free-text">{{item.value}}</label>
+            </label>
+          </radio-group>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
+
+  <!-- 时间开始 -->
+  <view class="times">
+    <view class="times_title">平均累计使用时长</view>
+    <view class="times_tip">
+      <view class="times_hour">
+        <text style="font-size: 30rpx;">0</text>小时
+      </view>
+      <view class="times_minute"> <text style="font-size: 30rpx;">35</text>分钟</view>
+    </view>
+  </view>
+  <!-- 时间结束 -->
+  <!-- 图标开始 -->
+  <view class="chart">
+    <view class="chart_item">
+      <view class="chart_item_one">
+        <view class="chart_item_m">3分钟20秒</view>
+        <view class="chart_item_name">内存管家</view>
+      </view>
+      <view class="chart_item_two">
+        <view class="chart_item_m1">3分钟20秒</view>
+        <view class="chart_item_name1">设置</view>
+      </view>
+      <view class="chart_item_three">
+        <view class="chart_item_m2">20秒</view>
+        <view class="chart_item_name2">软件包安装程序</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="bg">
+  <image class="bg_img" src="../../images/bg.gif"></image>
+</view> -->
+  <!-- 图标结束 -->
+  <!-- tab开始 -->
+  <view class="footer">
+    <view class='top'>
+      <view class="{{login?'active':''}}  tab1" catchtap='record'>APP使用记录</view>
+      <view class="{{login?'':'active'}} tab1 tab2" catchtap='statistics'>APP使用统计</view>
+    </view>
+
+    <view class='record' wx:if="{{login}}">
+      <view class="table">
+        <view class="table_name">
+          <view class="table_name_one">应用名称</view>
+          <view class="table_name_two">开始时间</view>
+          <view class="table_name_three">使用时长</view>
+        </view>
+        <scroll-view scroll-y="true" style="height: 420rpx;">
+          <view wx:for-items="{{records}}" wx:key="id">
+            <view class="table_item">
+              <view class="table_item_one">{{item.app_name}}</view>
+              <view class="table_item_two">{{item.start_time}}</view>
+              <view class="table_item_three">{{item.appTimesStr}}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='statistics' wx:else>
+      <view class="table">
+        <view class="table_name">
+          <view class="table_name_one">应用排名</view>
+          <view class="table_name_two">应用名称</view>
+          <view class="table_name_three">累计时长</view>
+        </view>
+        <scroll-view scroll-y="true" style="height: 420rpx;">
+          <view wx:for-items="{{Statistics}}" wx:key="id">
+            <view class="table_item">
+              <view class="table_item_one">
+                <view class="number">{{item.type}}</view>
+              </view>
+              <view class="table_item_two1">
+                <view class="table_item_two1_right">
+                  <image class="table_item_two1_img"
+                    src="https://resources.edu505.com/{{item.icon_path}}" />
+                  <!-- icon_path -->
+                </view>
+                <view class="table_item_two1_left">{{item.app_name}}</view>
+              </view>
+              <view class="table_item_three">{{item.sumAppTimesStr}}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- tab结束 -->

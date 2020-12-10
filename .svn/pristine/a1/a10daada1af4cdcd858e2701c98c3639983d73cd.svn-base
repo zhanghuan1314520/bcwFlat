@@ -1,0 +1,187 @@
+// pages/application/index.js
+import { request } from "../../request/index.js";
+var searchValue =''  
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    // 学习推荐
+    lists: [],
+    Utilities: [],
+    entertainment: [],
+    other: [],
+    tabArr: {
+      curHdIndex: 0,
+      curBdIndex: 0
+    },
+    centent_Show: true,  
+    searchValue: '',  
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(options);
+    this.getlists();
+    this.getUtilities();
+    this.getentertainment();
+    this.getother();
+  },
+
+
+  getlists() {
+    request({ url: "/appDevice/queryMyAppDevice", data: { appName: 1, categoryId: 1, mac: "88:BF:E4:48:57:8F", pushStatus: 0, searchType: 2 }, 
+    method: "POST" })
+      .then(result => {
+        console.log("学习列表详情数据1", result.data);
+        this.setData({
+          lists: result.data
+        })
+      })
+  },
+  getUtilities() {
+    request({ url: "/appDevice/queryMyAppDevice", data: { appName: 2, categoryId: 2, mac: "88:BF:E4:48:57:8F", pushStatus: 0, searchType: 1 }, method: "POST" })
+      .then(result => {
+        console.log("实用列表详情数据2", result.data);
+        this.setData({
+          Utilities: result.data
+        })
+      })
+  },
+  getentertainment() {
+    request({ url: "/appDevice/queryMyAppDevice", data: { appName: 3, categoryId: 3, mac: "88:BF:E4:48:57:8F", pushStatus: 0, searchType: 1 }, method: "POST" })
+      .then(result => {
+        console.log("娱乐列表详情数据3", result.data);
+        this.setData({
+          entertainment: result.data
+        })
+      })
+  },
+  getother() {
+    request({ url: "/appDevice/queryMyAppDevice", data: { appName: 4, categoryId: 4, mac: "88:BF:E4:48:57:8F", pushStatus: 0, searchType: 1 }, method: "POST" })
+      .then(result => {
+        console.log("其它列表详情数据4", result.data);
+        this.setData({
+          other: result.data
+        })
+      })
+  },
+  uninstall: function () {
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定把学霸一对一从平板卸载吗？',
+      success(res) {
+        if (res.confirm) {
+          // 推送应用
+          wx.request({
+            url: 'https://pswanmor.edu505.com/api/appDevice/push',
+            data: {
+              appId: 178, mac: "88:BF:E4:48:57:8F"
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log("卸载的内容",res);
+            }
+          })
+          wx.showToast({
+            title: '卸载成功',
+            icon: "none",
+            duration: 2000,
+            mask: true,
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  // 搜索框开始
+  searchValueInput: function (e) {  
+    console.log("输入框的值",e);
+    console.log(e.detail.value)
+    var value = e.detail.value;  
+    this.setData({  
+      searchValue: value,  
+    });  
+    if (!value && this.data.productData.length == 0) {  
+      this.setData({  
+        centent_Show: false,  
+      });  
+    }  
+  },  
+  suo:function(e){  
+    console.log("搜索按钮的值",e);
+    console.log(e.currentTarget.dataset)
+    var id= e.currentTarget.dataset.id  
+  },
+  // 搜索框结束
+
+  // tab切换开始
+  tabFun: function (event) {
+    console.log("当前的值",event);
+    console.log(event.target.dataset)
+    //获取触发事件组件的dataset属性 
+    var _datasetId = event.target.dataset.id;
+    console.log("----" + _datasetId + "----");
+    var _obj = {};
+    _obj.curHdIndex = _datasetId;
+    _obj.curBdIndex = _datasetId;
+    this.setData({
+      tabArr: _obj
+    });
+  },
+
+})

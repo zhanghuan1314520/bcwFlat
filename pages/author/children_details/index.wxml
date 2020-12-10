@@ -1,0 +1,42 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="content radius" wx:key="id">
+      <view class="item">
+        <view class="item_right">MAC</view>
+        <view class="item_left">
+          {{orm.mac}}
+          <input hidden="true" class="weui-input" name="mac" value="{{orm.mac}}" />
+
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">姓名</view>
+        <view class="item_left">
+          <input class="weui-input" maxlength="6" name="studentName" value="{{orm.studentName}}" placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">性别</view>
+        <view class="item_left">
+          <view>
+            <picker name="gender" bindchange="bindPickerChange" value="{{orm.gender}}" range="{{array}}">
+              <view class="picker">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="time_two">
+          <image class="jt_img" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">学号</view>
+        <view class="item_left">
+          <input class="weui-input" maxlength="6" name="studentCode" value="{{orm.studentCode}}" placeholder="请输入学号" />
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <button class="buttons" style="width:516rpx;" form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

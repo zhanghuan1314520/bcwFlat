@@ -1,0 +1,26 @@
+/* pages/location/index.wxss */
+.back_img{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+left: 640rpx;
+top: 1050rpx;
+}
+
+.img1{
+  width: 277rpx;
+  height: 268rpx;
+}
+.selected{
+  width: 694rpx;
+  height: 400rpx;
+  text-align: center;
+  margin-top: 196rpx;
+}
+.tip{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #804CF7;
+  font-weight: 600;
+  padding-left: 40rpx;
+}

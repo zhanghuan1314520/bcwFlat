@@ -1,0 +1,55 @@
+/**app.wxss**/
+page{
+  background-color:#dfe1fd;
+}
+/* /swtich整体大小及背景色/ */
+.wx-switch-input {
+  width: 100rpx !important;
+  height: 44rpx !important;
+  background: #804CF7 !important;
+  border: #804CF7 !important;
+  box-sizing: border-box;
+}
+
+/* /白色样式（false的样式）/ */
+.wx-switch-input::before {
+  width: 100rpx !important;
+  height: 44rpx !important;
+  background: #ccc !important;
+  border: #ccc !important;
+  box-sizing: border-box;
+}
+
+/* /绿色样式（true的样式）/ */
+.wx-switch-input::after {
+  width: 65rpx !important;
+  height: 44rpx !important;
+}
+/* 按钮 */
+.buttons{
+  background-color: #804CF7;
+  font-weight: bold;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 38rpx;
+  }
+/* 箭头 */
+.jt_img{
+  width: 33rpx;
+  height: 33rpx;
+}
+/* container */
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 40rpx;
+  background: -webkit-linear-gradient(top,#804CF7,#804CF7,#DEE0FE);
+}
+.content {
+  margin: 0 28rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.radius{
+  border-radius: 20rpx;
+}

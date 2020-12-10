@@ -1,0 +1,93 @@
+<view class="content">
+  <view class="nav">
+    <view class="time">
+      <view class="time_one">
+        <action-sheet bindchange="actionSheetChange" hidden="{{actionType}}">
+          <block wx:for="{{actionSheetItems}}" wx:key="*this">
+            <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">
+              {{item}}
+            </action-sheet-item>
+          </block>
+          <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+        </action-sheet>
+        <view>
+          <input  name="type" value="{{addTypeData}}" disabled="{{addTypeDis}}" bindfocus="addType"
+            placeholder="最近一周" />
+        </view>
+      </view>
+      <view class="time_two">
+        <image class="img" src="../../images/jt_top.png" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 时间开始 -->
+<view class="times">
+  <view class="times_title">平均累计使用时长</view>
+  <view class="times_tip">
+    <view class="times_hour">
+      <text style="font-size: 40rpx;padding: 0 10rpx;">0</text>小时
+    </view>
+    <view class="times_minute"> <text style="font-size: 40rpx; padding: 0 10rpx;">35</text>分钟</view>
+  </view>
+</view>
+<!-- 时间结束 -->
+<!-- 图标开始 -->
+<view class="chart">
+  <view class="charts">
+    <canvas canvas-id="columnCanvas" class="canvas" disable-scroll='true'
+      style='width:{{code_w}}px;height:{{code_h}}px'></canvas>
+  </view>
+</view>
+<!-- 图标结束 -->
+<!-- tab开始 -->
+<view class="footer">
+  <view class='top'>
+    <view class="{{login?'active':''}} tab1" catchtap='record'>APP使用记录</view>
+    <view class="{{login?'':'active'}} tab2" catchtap='statistics'>APP使用统计</view>
+  </view>
+  <view class='record' wx:if="{{login}}">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">应用名称</view>
+        <view class="th">开始时间</view>
+        <view class="th ">使用时长</view>
+      </view>
+      <block wx:for="{{listData}}" wx:key="{[code]}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td">{{item.code}}</view>
+          <view class="td">{{item.text}}</view>
+          <view class="td">{{item.type}}</view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td">{{item.code}}</view>
+          <view class="td">{{item.text}}</view>
+          <view class="td">{{item.type}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='statistics' wx:else>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">应用排名</view>
+        <view class="th">应用名称</view>
+        <view class="th ">累计时长</view>
+      </view>
+      <block wx:for="{{listData1}}" wx:key="{[code]}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td">{{item.code}}</view>
+          <view class="td">{{item.text}}</view>
+          <view class="td">{{item.type}}</view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td">{{item.code}}</view>
+          <view class="td">{{item.text}}</view>
+          <view class="td">{{item.type}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<!-- tab结束 -->

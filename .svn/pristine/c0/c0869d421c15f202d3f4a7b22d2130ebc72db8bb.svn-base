@@ -1,0 +1,140 @@
+<!-- 搜索开始 -->
+<view class='search'>
+  <input  placeholder="请输入应用名称进行搜索"  confirm-type="search" maxlength="15" bindinput='wxSearchInput' value='{{keyword}}' 
+  bindconfirm='wxSearchFn' bindfocus="wxSerchFocus" bindblur="wxSearchBlur" placeholder-style="color:#fff;" value='{{keyword}}' />
+  <button class='btn1' size='mini' bindtap="wxSearchFn">搜索</button>
+</view>
+<!-- 搜索结束 -->
+
+<!-- tab导航栏开始 -->
+<view class="nav_title">
+  <view class="nav_tab">
+    <view wx:for="{{list}}" class="{{selected==index?'hidden':'show'}}" data-index='{{index}}' bindtap="selected"
+      wx:key="id">
+      {{item}}
+      <view class="{{selected==index?'nav_underline':''}}"></view>
+    </view>
+  </view>
+  <!-- tab导航栏结束 -->
+  <!-- tab框显示内容 -->
+  <view wx:if="{{selected == 0}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#F67651' wx:if="{{item.pushStatus==0}}">待推送</view>
+              <view style='color:#F67651' wx:if="{{item.pushStatus==1}}">已推送</view>
+              <view style='color:#28AC39' wx:elif="{{item.pushStatus==2}}">已安装</view>
+              <view style='color:#F67651' wx:elif="{{item.pushStatus==3}}">待卸载</view>
+              <view style='color:#E92E2F' wx:elif="{{item.pushStatus==4}}">已卸载</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <View wx:if="{{item.pushStatus==0 || item.pushStatus==3 || item.pushStatus==4}}">
+            <View class="btn" bindtap="push" data-id="{{ item.id }}" data-name="{{item.appName}}">推送至平板</View>
+          </View>
+          <View wx:elif="{{item.pushStatus==1 || item.pushStatus==2}}">
+            <View class="btn2" bindtap="uninstall" data-id="{{ item.id }}" data-name="{{item.appName}}">从平板卸载</View>
+          </View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 1}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#F67651' wx:if="{{item.pushStatus==0}}">待推送</view>
+              <view style='color:#F67651' wx:if="{{item.pushStatus==1}}">已推送</view>
+              <view style='color:#28AC39' wx:elif="{{item.pushStatus==2}}">已安装</view>
+              <view style='color:#F67651' wx:elif="{{item.pushStatus==3}}">待卸载</view>
+              <view style='color:#E92E2F' wx:elif="{{item.pushStatus==4}}">已卸载</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <View wx:if="{{item.pushStatus==0 || item.pushStatus==3 || item.pushStatus==4}}">
+            <View class="btn" bindtap="push" data-id="{{ item.id }}" data-name="{{item.appName}}">推送至平板</View>
+          </View>
+          <View wx:elif="{{item.pushStatus==1 || item.pushStatus==2}}">
+            <View class="btn2" bindtap="uninstall" data-id="{{ item.id }}" data-name="{{item.appName}}">从平板卸载</View>
+          </View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 2}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#F67651' wx:if="{{item.pushStatus==0}}">待推送</view>
+              <view style='color:#F67651' wx:if="{{item.pushStatus==1}}">已推送</view>
+              <view style='color:#28AC39' wx:elif="{{item.pushStatus==2}}">已安装</view>
+              <view style='color:#F67651' wx:elif="{{item.pushStatus==3}}">待卸载</view>
+              <view style='color:#E92E2F' wx:elif="{{item.pushStatus==4}}">已卸载</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <View wx:if="{{item.pushStatus==0 || item.pushStatus==3 || item.pushStatus==4}}">
+            <View class="btn" bindtap="push" data-id="{{ item.id }}" data-name="{{item.appName}}">推送至平板</View>
+          </View>
+          <View wx:elif="{{item.pushStatus==1 || item.pushStatus==2}}">
+            <View class="btn2" bindtap="uninstall" data-id="{{ item.id }}" data-name="{{item.appName}}">从平板卸载</View>
+          </View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 3}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#F67651' wx:if="{{item.pushStatus==0}}">待推送</view>
+              <view style='color:#F67651' wx:if="{{item.pushStatus==1}}">已推送</view>
+              <view style='color:#28AC39' wx:elif="{{item.pushStatus==2}}">已安装</view>
+              <view style='color:#F67651' wx:elif="{{item.pushStatus==3}}">待卸载</view>
+              <view style='color:#E92E2F' wx:elif="{{item.pushStatus==4}}">已卸载</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <View wx:if="{{item.pushStatus==0 || item.pushStatus==3 ||item.pushStatus==4}}">
+            <View class="btn" bindtap="push" data-id="{{ item.id }}" data-name="{{item.appName}}">推送至平板</View>
+          </View>
+          <View wx:elif="{{item.pushStatus==1 || item.pushStatus==2}}">
+            <View class="btn2" bindtap="uninstall" data-id="{{ item.id }}" data-name="{{item.appName}}">从平板卸载</View>
+          </View>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

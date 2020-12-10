@@ -1,0 +1,102 @@
+
+// import { request } from "../../request/index.js";
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    //时间段选择
+    arrayIndex: 0,
+    timeLockStartTime:"00:00" ,
+    timeLockEndTime: "12:00",
+    shows: false
+  },
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // 获取浏览器数据
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/queryDeviceConfig?mac=88:BF:E4:48:57:8F ',
+      success: (result) => {
+        console.log("根据mac查询设备配置", result);
+      },
+    })
+  },
+   //开关
+   switch1Change: function (e) {
+    console.log(e);
+    this.setData({
+      shows: e.detail.value
+    });
+  },
+  //时间段选择
+  bindTimeChange: function (e) {
+    console.log(e);
+    console.log('当前的开始时间为', e.detail.value)
+    this.setData({
+      // 浏览器获取到标签的开始时间
+      timeLockStartTime: e.detail.value
+    })
+  },
+  bindTimeChange1: function (e) {
+    console.log(e);
+    console.log('当前的结束时间为', e.detail.value)
+    this.setData({
+      // 浏览器获取到标签的结束时间
+      timeLockEndTime: e.detail.value
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

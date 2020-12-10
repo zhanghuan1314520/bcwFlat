@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="content">
+    <form bindsubmit="formSubmit">
+      <view class="nav radius">
+        <textarea placeholder="请输入你遇到的问题或建议..." value='{{concent}}' minlength="{{min}}" maxlength="{{max}}"
+          bindinput="inputs" bindblur='bindTextAreaBlur' focus="{{focus}}"></textarea>
+      </view>
+      <view class="btn">
+        <button style="width:516rpx;" class="buttons" form-type="submit">发送</button>
+      </view>
+    </form>
+  </view>
+  </view>

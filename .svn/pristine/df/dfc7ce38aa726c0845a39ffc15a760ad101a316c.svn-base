@@ -1,0 +1,119 @@
+// pages/author/code/index.js
+var QRCode = require('../../../utils/qrcode.js')
+var qrcode;
+Page({
+    data: {
+        text: '',
+        image: ''
+    },
+    onLoad: function (options) {
+        var phone = wx.getStorageSync('phone');
+        console.log("======================", phone)
+        qrcode = new QRCode('canvas', {
+            text: "",
+            image: '../../../images/code.png',
+            width: 150,
+            height: 150,
+            colorDark: "#000000",
+            colorLight: "white",
+
+            correctLevel: QRCode.CorrectLevel.H,
+        });
+        var value = '{"phone":"' + phone + '",' + '"source":"BCW"}';
+        qrcode.makeCode(value)
+    },
+    save: function () {
+        console.log('save')
+        wx.showActionSheet({
+            itemList: ['保存图片'],
+            success: function (res) {
+                console.log(res.tapIndex)
+                if (res.tapIndex == 0) {
+                    qrcode.exportImage(function (path) {
+                        wx.saveImageToPhotosAlbum({
+                            filePath: path,
+                        })
+                    })
+                }
+                wx.switchTab({
+                    url: '/pages/my/index',
+                })
+            }
+        })
+    },
+    /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    //刷新
+onRefresh(){
+    //在当前页面显示导航条加载动画
+    wx.showNavigationBarLoading(); 
+    //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
+    wx.showLoading({
+      title: '刷新中...',
+    })
+    this.getData();
+  },
+//网络请求，获取数据
+getData(){
+	wx.request({
+        url: '',
+        //网络请求执行完后将执行的动作
+        complete(res){
+            //隐藏loading 提示框
+            wx.hideLoading();
+            //隐藏导航条加载动画
+            wx.hideNavigationBarLoading();
+            //停止下拉刷新
+            wx.stopPullDownRefresh();
+  	  	}
+	})   
+},
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+        //调用刷新时将执行的方法
+        this.onRefresh();
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

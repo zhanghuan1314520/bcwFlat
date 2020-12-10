@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/journal/index",
+    "pages/my/index",
+    "pages/browser/index",
+    "pages/lock/index",
+    "pages/inspect/index",
+    "pages/author/change_password/index",
+    "pages/author/parent_information/index",
+    "pages/index/index",
+    "pages/author/about/index",
+    "pages/administration/index",
+    "pages/author/feedback/index",
+    "pages/author/children/index",
+    "pages/forget_password/index",
+    "pages/author/information_updata/index",
+    "pages/time/index",
+    "pages/location/index",
+    "pages/application/index",
+    "pages/author/code/index",
+    "pages/author/device_information/index",
+    "pages/service_agreement/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4268EF",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#4268EF",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tab/index_select.png",
+        "selectedIconPath": "/images/tab/index_selected.png"
+      },
+      {
+        "pagePath": "pages/application/index",
+        "text": "应用安装",
+        "iconPath": "/images/tab/anzhuang_select.png",
+        "selectedIconPath": "/images/tab/anzhuang_selected.png"
+      },
+      {
+        "pagePath": "pages/administration/index",
+        "text": "应用管理",
+        "iconPath": "/images/tab/index_select.png",
+        "selectedIconPath": "/images/tab/index_selected.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/images/tab/my_select.png",
+        "selectedIconPath": "/images/tab/my_selected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

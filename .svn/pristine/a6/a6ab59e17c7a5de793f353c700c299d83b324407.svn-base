@@ -1,0 +1,28 @@
+/* pages/author/about/index.wxss */
+.content{
+  margin: 30rpx 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.item1{
+  flex: 1;
+  display: flex;
+  margin: 20rpx 0;
+}
+.content_right{
+  flex: 1;
+  padding-left: 10rpx;
+  font-size: 30rpx;
+  color:#000;
+  font-weight: 500;
+}
+.content_left{
+  flex: 1;
+  font-size: 28rpx;
+  color:#666;
+  text-align: right;
+  padding-right: 10rpx;
+}

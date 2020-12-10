@@ -1,0 +1,6 @@
+<view class="content">
+  <van-cell-group>
+    <van-cell title="客服热线" value="010-82795991" />
+    <van-cell title="微信公众号" value="不错先生助教平板" />
+  </van-cell-group>
+</view>

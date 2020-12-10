@@ -1,0 +1,183 @@
+// pages/journal/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    login: true,
+    array: ['最近一周', '最近一月', '最近三月'],
+    index: 0,
+    // 记录
+    records: [{
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "文件管理",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }, {
+      name: "软件包安装程序",
+      start_time: "2020/08 10:38:29",
+      time: "59秒"
+    }],
+    // 统计
+    Statistics: [{
+      name: "软件包安装程序",
+      number:1,
+      url: "../../images/img1.jpg",
+      time: "59秒"
+    }, {
+      name: "抖音短视频",
+      number:2,
+      url: "../../images/img1.jpg",
+      time: "3分钟20秒"
+    }, {
+      name: "中小学移动课堂",
+      number:3,
+      url: "../../images/img2.jpg",
+      time: "3分钟20秒"
+    }, {
+      name: "学霸君1对1HD",
+      number:4,
+      url: "../../images/img1.jpg",
+      time: "59秒"
+    }, {
+      name: "设置",
+      number:5,
+      url: "../../images/img3.jpg",
+      time: "3分钟20秒"
+    }, {
+      name: "软件包安装程序",
+      number:6,
+      url: "../../images/img2.jpg",
+      time: "59秒"
+    }]
+  },
+
+  record: function () {
+    this.setData({
+      login: true
+    });
+  },
+  statistics: function () {
+    this.setData({
+      login: false
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+  //时间段选择
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

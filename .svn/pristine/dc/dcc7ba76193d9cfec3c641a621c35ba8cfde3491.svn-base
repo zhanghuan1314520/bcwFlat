@@ -1,0 +1,10 @@
+<view class="content1">
+  <view  wx:if="{{isOnline==1}}">
+    <view class="title">平板当前的画面</view>
+      <image class="img"  src="https://pswanmor.edu505.com/api/{{imgPath}}"  data-src="{{image}}" bindtap="previewImage" mode="scaleToFill"  lazy-load/>
+  </view>
+  <view wx:else  class="selected">
+       <image class="img1"  src="../../images/sb.png" mode="scaleToFill"  lazy-load/>
+      <view class="tip">设备当前不在线，请检查重试!</view>
+    </view>
+</view>

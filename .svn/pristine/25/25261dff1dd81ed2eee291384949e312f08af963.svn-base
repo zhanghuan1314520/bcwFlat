@@ -1,0 +1,94 @@
+<view class='container '>
+  <view class="content radius">
+    <view class="content_image">
+      <image class="content_img" src="../../images/img2.jpg" />
+    </view>
+    <view class="content_title">不错家长管控</view>
+    <view class='top'>
+      <view class="{{login?'active':''}} tab " catchtap='login'>登录</view>
+      <view class="{{login?'':'active'}} tab " catchtap='register'>注册</view>
+    </view>
+    <!-- 登录部分开始 -->
+    <view wx:if="{{login}}">
+      <form>
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/icon03.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="phone" maxlength="11" placeholder="请输入手机号" /></view>
+        </view>
+        <!-- 密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/icon02.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="password" password placeholder="请输入密码" /></view>
+        </view>
+       <view class="btn">
+        <button class="buttons"  style="width: 516rpx;"  bindtap="login">登录</button>
+       </view>
+
+        <view class="footer">
+          <view class="footer_right">
+            <view class="footer_checbox">
+              <checkbox value="cb" />
+            </view>
+            <view class="tongyi" bindtap="service_agreement">阅读并同意<text
+                style="padding-left:10rpx;color:#377FF7;font-size: 24rpx;">《服务协议》</text></view>
+          </view>
+          <view class="footer_left" bindtap="forget">忘记密码？</view>
+        </view>
+      </form>
+    </view>
+    <!-- 登录部分结束 -->
+    <!-- 注册部分开始 -->
+    <view wx:else>
+      <form>
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/icon03.png" />
+          </view>
+          <view class="content_form_two"><input type="number" bindinput="handleInputPhone" maxlength="11"
+              placeholder="请输入11位手机号" />
+          </view>
+        </view>
+        <!-- 验证码 -->
+        <view class="content_form">
+          <view class="content_form_one1">
+            <image class="img" src="../../images/icon01.png" />
+          </view>
+          <view class="content_form_two1">
+            <view class="content_form_two_right"><input type="text" maxlength="4" bindinput="handleVerificationCode"
+                placeholder="请输入验证码" /></view>
+            <view class="content_form_two_left">
+              <button class='button1' bindtap='doGetCode' disabled='{{disabled}}'
+                style=" background-color:{{color}}">{{text}}</button>
+            </view>
+          </view>
+        </view>
+        <!-- 设置密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/icon02.png" />
+          </view>
+          <view class="content_form_two"><input type='password' bindinput="handleNewChanges" placeholder="请设置密码" />
+          </view>
+        </view>
+        <!-- 确认密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/icon02.png" />
+          </view>
+          <view class="content_form_two"><input ttype='password' bindinput="handleNewChangesAgain" password
+              placeholder="请再次输入密码" /></view>
+        </view>
+      <view class="btn">
+        <button class="buttons" style="width: 516rpx;" bindtap='submit'>注册并登录</button>
+      </view>
+      </form>
+    </view>
+  </view>
+  <!-- 注册部分结束 -->
+</view>

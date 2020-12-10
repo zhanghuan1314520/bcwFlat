@@ -1,0 +1,90 @@
+<view class='container'>
+  <view class="content">
+    <view class='top'>
+      <view class="{{login?'active':''}} tab1" catchtap='login'>登录</view>
+      <view class="{{login?'':'active'}} tab2" catchtap='register'>注册</view>
+    </view>
+    <!-- 登录部分开始 -->
+    <view class='log' wx:if="{{login}}">
+      <form>
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="phone" maxlength="11" placeholder="请输入手机号" /></view>
+        </view>
+        <!-- 密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="password" password placeholder="请输入密码" /></view>
+        </view>
+        
+
+
+        <view class="btn">
+          <van-button round type="info" block  bindtap="login">登录</van-button>
+        </view>
+
+
+        <view class="footer">
+          <view class="footer_right">
+            <view class="footer_checbox">
+              <checkbox value="cb" checked="true" />
+            </view>
+            <view class="tongyi" bindtap="service_agreement">阅读并同意<text style="color:#377FF6;">《服务协议》</text></view>
+          </view>
+          <view class="footer_left" bindtap="forget">忘记密码？</view>
+        </view>
+      </form>
+    </view>
+    <!-- 登录部分结束 -->
+    <!-- 注册部分开始 -->
+    <view class='reg' wx:else>
+      <form>
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="phone" maxlength="11" placeholder="请输入11位手机号" />
+          </view>
+        </view>
+        <!-- 验证码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <!-- <view class="content_form_two"><input type="text" password placeholder="请输入密码" /></view> -->
+          <view class="mod t-name" style='position:relative'>
+            <input type="digit" bindinput="bindKeyInput" data-inputname="phoneCode" value='{{phoneCode}}' class="input"
+              maxlength="100" placeholder="请输入手机验证码" />
+            <text class='logbook'></text>
+            <text class='getkey' bindtap="clickGainCode">{{tipsCode}}</text>
+          </view>
+        </view>
+        <!-- 设置密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="password" password placeholder="请设置密码" /></view>
+        </view>
+        <!-- 确认密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/my_01.png" />
+          </view>
+          <view class="content_form_two"><input type="number" name="password" password placeholder="请再次输入密码" /></view>
+        </view>
+       
+        <view class="btn1">
+          <van-button round type="info" block  bindtap="login">注册并登录</van-button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <!-- 注册部分结束 -->
+</view>

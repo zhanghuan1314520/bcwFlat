@@ -1,0 +1,67 @@
+/* pages/application/index.wxss */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30rpx 20rpx 20rpx 20rpx;
+}
+.card {
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.img {
+  width: 110rpx;
+  height: 100rpx;
+}
+
+.list-table-view{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 25rpx 20rpx 10rpx 20rpx;
+}
+.list-col-3{
+ flex: 0 0 auto;
+  width: 45.33333333%;
+  color: #797979;
+  padding: 15rpx;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin-bottom: 25rpx;
+}
+.list_left{
+  display: flex;
+  height: 100rpx;
+}
+.list_left_one{
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.list_left_two{
+  margin-left: 10rpx;
+}
+.title{
+  margin: 10rpx 5rpx;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+}
+.tip{
+  display: flex;
+  margin: 10rpx 5rpx;
+  font-size: 25rpx;
+  padding: 10rpx 0;
+}
+.list_right{
+ margin:15rpx 20rpx 23rpx 20rpx;
+}
+.btn{
+  border: 1px solid rgb(89, 38, 209);
+  color: rgb(89, 38, 209);
+  font-size: 25rpx;
+  text-align: center;
+  padding: 3rpx 0;
+  border-radius: 30rpx;
+  margin: 0 20rpx;
+}

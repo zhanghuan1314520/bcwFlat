@@ -1,0 +1,11 @@
+<view class="content">
+  <view class="title">平板当前的画面</view>
+  <!-- <view class="imgs" wx:for="{{imglist}}" wx:for-item="image">
+      <image   class="img"  src="https://pswanmor.edu505.com/api/{{imgPath.imgPath}}"  data-src="{{image}}" bindtap="previewImage" mode="scaleToFill" />
+  </view> -->
+  <swiper class="imgs" >
+    <swiper-item  wx:for="{{imglist}}" wx:for-item="image">
+      <image   class="img"  src="https://pswanmor.edu505.com/api/{{imgPath.imgPath}}"  data-src="{{image}}" bindtap="previewImage" mode="scaleToFill" />
+    </swiper-item>
+  </swiper>
+</view>

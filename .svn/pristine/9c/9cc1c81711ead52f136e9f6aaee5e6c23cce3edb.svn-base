@@ -1,0 +1,109 @@
+<van-tabs active="{{ active }}" title-active-color="#804CF7" color="#804CF7">
+  <van-tab title="预装应用">
+    <!-- 系统应用开始 -->
+    <!-- type:1 -->
+    <view class="card radius" wx:for="{{lists}}" wx:for-item="item" wx:key="id" >
+      <view class="card_left">
+        <view class="left_one">
+          <image class="img" src="../../images/img2.jpg" mode="aspectFill" />
+        </view>
+        <view class="left_two">
+          <view class="title">{{item.appName}}</view>
+          <view class="tip">
+            <view class="name" style="color:#F67651" wx:if="{{item.status==0}}">待显示</view>
+            <view class="name" style="color:#28AC39" wx:elif="{{item.status==1}}">已显示</view>
+            <view class="m">{{item.fileSize}}M</view>
+          </view>
+        </view>
+      </view>
+      <view class="card_right">
+        <switch color="#804CF7" data-id="{{item.id}}" bindchange="onChange1" checked="{{switch1Checked}}" />
+      </view>
+    </view>
+    <!-- type:2 -->
+    <view class="card radius" wx:for="{{Tripartite}}" wx:for-item="item" wx:key="id">
+      <view class="card_left">
+        <view class="left_one">
+          <image class="img" src="../../images/img2.jpg" mode="aspectFill" />
+        </view>
+        <view class="left_two">
+          <view class="title">{{item.appName}}</view>
+          <view class="tip">
+            <view class="name" style="color:#F67651" wx:if="{{item.status==0}}">待启用</view>
+            <view class="name" style="color:#28AC39" wx:elif="{{item.status==1}}">已启用</view>
+            <view class="m">{{item.fileSize}}M</view>
+          </view>
+        </view>
+      </view>
+      <view class="card_right">
+        <switch color="#804CF7" data-id="{{item.id}}" bindchange="onChange2" checked="{{switch1Checked}}" />
+      </view>
+    </view>
+    <!-- 系统应用结束 -->
+  </van-tab>
+  <van-tab title="推送应用">
+    <!-- 修改已安装应用可用时间 -->
+    <view class="card2 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+      <view class="card_list_one">
+        <view class="card_left1">
+          <view class="left_one">
+            <image class="img" src="https://resources.edu505.com/{{item.iconPath}}" mode="aspectFill" />
+          </view>
+          <view class="left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:#28AC39'>已安装</view>
+              <view class="m">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="card_right1">
+          <view class="btn"  bindtap="del" data-id="{{ item.id }}">从平板卸载</view>
+        </view>
+      </view>
+      <view class="card_list_two">
+        <view class="list_left">设置使用时间段</view>
+        <view class="list_right">
+          <switch color="#804CF7"  data-id="{{item.id}}" data-index="{{index}}" bindchange="switch1Change"  checked="{{switchChecked[index]}}"/>
+        </view>
+      </view>
+      <view class="time" wx:if="{{shows[index]==true}}">
+        <view class="times common">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" name="time">
+              <view wx:if="{{item.status==0}}">
+                <view class="picker">
+                  {{startTime[index]}}
+                </view>
+              </view>
+              <view wx:elif="{{item.status==1}}">
+                <view class="picker">
+                  {{item.startTime}}
+                </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="br">——</view>
+        <view class="times1 common">
+          <view class="section">
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1" name="time">
+              <view wx:if="{{item.status==0}}">
+                <view class="picker">
+                  {{endTime[index]}}
+                </view>
+              </view> 
+              <view wx:elif="{{item.status==1}}">
+                <view class="picker">
+                  {{item.startTime}}
+                  <!-- {{item.endTime}} -->
+                </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 第三方应用结束 -->
+</van-tabs>

@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="content radius">
+    <!-- 手机号 -->
+    <view class="content_form">
+      <view class="content_form_one">
+        <image class="img" src="../../images/icon03.png" />
+      </view>
+      <view class="content_form_two"><input type="number" type="number" bindinput="phonenumberInput" maxlength="11"
+          placeholder="请输入11位手机号" />
+      </view>
+    </view>
+    <!-- 验证码 -->
+    <view class="content_form">
+          <view class="content_form_one1">
+            <image class="img" src="../../images/icon01.png" />
+          </view>
+          <view class="content_form_two1">
+            <view class="content_form_two_right"><input placeholder="请输入验证码" name="code" type="number"
+                bindinput="addCode" /></view>
+            <view class="content_form_two_left">
+              <view class='getcode' wx:if="{{send}}" bindtap="sendMsg">获取验证码</view>
+              <view class='getcode' wx:if="{{alreadySend}}" bindtap="sendMsg">{{second+"s"}}后重新发送</view>
+            </view>
+          </view>
+        </view>
+    <!-- 设置密码 -->
+    <view class="content_form">
+      <view class="content_form_one">
+        <image class="img" src="../../images/icon02.png" />
+      </view>
+      <view class="content_form_two"><input type='password'  bindinput="passwordInput" placeholder="请重新设置密码" /></view>
+    </view>
+    <!-- 确认密码 -->
+    <view class="content_form">
+      <view class="content_form_one">
+        <image class="img" src="../../images/icon02.png" />
+      </view>
+      <view class="content_form_two"><input type='password'bindinput="passwordInputAck" placeholder="请再次输入密码" />
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    <button style="width:516rpx;" class="buttons" bindtap="ForgetPassword">确认修改</button>
+  </view>
+</view>

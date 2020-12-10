@@ -1,0 +1,17 @@
+<view>
+  <map id="myMap" longitude="120.2985" latitude="30.41875" scale="16"
+    bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"
+    bindregionchange="regionchange" show-location style="width: 100%; height:{{MapHeight}};">
+    <cover-image class="back_img" src="../../images/map.png"  bindtap="moveTolocation"></cover-image>
+  </map>
+</view>
+
+<!-- <map id="myMap" style="width: 100%; height: 800px;" latitude="{{latitude}}"   longitude="{{longitude}}" markers="{{markers}}" show-location="true" show-compass="true" bindmarkertap="getMarkers" wx:if="{{hasMaekers}}" bindcallouttap="getCallOut">
+ </map>
+ <view class="viewlistd"  bindtap="moveTolocation">
+    <view class="viewlistblock" style="background:none;">
+      <view class="viewlittle" style="padding:0;">
+        <image  src="../../images/map.png" mode="" class="" id="" style="width:120rpx;height:120rpx;"></image>
+      </view>
+    </view>
+</view> -->

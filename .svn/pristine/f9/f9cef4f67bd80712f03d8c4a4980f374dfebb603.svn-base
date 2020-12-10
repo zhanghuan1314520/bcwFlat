@@ -1,0 +1,121 @@
+<wxs src='../../utils/filter.wxs' module='filters' />
+<!--搜索框  -->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <!--点击之后，出现input框  -->
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" value="{{inpValue}}" placeholder="请输入应用名称进行搜索"
+        bindinput="handleInput" focus="{{inputShowed}}" />
+      <!--输入款字数大于0，则显示清除按钮  -->
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <!--没点击之前，只是一些文字和图标  -->
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">请输入应用名称进行搜索</view>
+    </label>
+  </view>
+  <!--动态出现的“取消”键  -->
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+
+
+<view class="tab">
+  <view class="tab-left" bindtap="tabFun" >
+    <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0" data-id="0">学习推荐</view>
+    <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1" data-id="1">实用工具</view>
+    <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2" data-id="2">娱乐游戏</view>
+    <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="3" data-id="3">其它</view>
+  </view>
+
+  <view class="tab-right">
+    <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+      <view class="list-table-view">
+        <view class="list-col-3 radius" wx:for="{{lists}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.appName}}</view>
+              <view class="tip">
+                <view style='color:{{filters.status(item.status).y}}'>{{filters.status(item.pushStatus).x}}</view>
+                <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right"  bindtap="uninstall">
+            <View class="btn" bindtap="deleteClick">{{item.pushStatus}}</View>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+      <view class="list-table-view">
+        <view class="list-col-3 radius" wx:for="{{Utilities}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.appName}}</view>
+              <view class="tip">
+                <view style=" color: red;">{{item.pushStatus}}</view>
+                <view style=" color:#9A9A9A; padding: 0 10rpx;">{{item.fileSize}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn" bindtap="uninstall">推送至平板</View>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+      <view class="list-table-view">
+        <view class="list-col-3 radius" wx:for="{{entertainment}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.appName}}</view>
+              <view class="tip">
+                <view style=" color: red;">{{item.pushStatus}}</view>
+                <view style=" color:#9A9A9A; padding: 0 10rpx;">{{item.fileSize}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn" bindtap="uninstall">推送至平板</View>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="right-item {{tabArr.curBdIndex=='3'? 'active' : ''}}">
+      <view class="list-table-view">
+        <view class="list-col-3 radius" wx:for="{{other}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.appName}}</view>
+              <view class="tip">
+                <view style=" color: red;">{{item.pushStatus}}</view>
+                <view style=" color:#9A9A9A; padding: 0 10rpx;">{{item.fileSize}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn" bindtap="uninstall">推送至平板</View>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

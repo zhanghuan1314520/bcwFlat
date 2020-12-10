@@ -1,0 +1,45 @@
+<view class="header">
+  <view class="header_right">
+    <image class="header_img" src="../../../images/png1.png" />
+  </view>
+  <view class="header_title">绑定的孩子</view>
+</view>
+<view class="content">
+  <!-- <van-cell-group>
+    <van-cell title="我的孩子" icon="location-o" is-link  url="/pages/author/device_information/index" />
+    <van-cell title="解除绑定" icon="location-o" is-link bindtap="relieve" />
+  </van-cell-group> -->
+  <view class="list" bindtap="device_information">
+    <view class="list_right">
+      <view class="list_head">
+        <image class="list_head_img" src="../../../images/png1.png" />
+      </view>
+      <view class="list_name">王猛</view>
+      <view class="list_nav">
+        <view class="list_nav_one">男</view>
+        <view class="list_nav_two">学号:</view>
+        <view class="list_nav_three">46149</view>
+      </view>
+    </view>
+
+
+
+
+
+
+    <view class="list_left">
+      <image class="list_left_img" src="../../../images/jt_left.png" />
+    </view>
+  </view>
+  <view class="list" bindtap="relieve">
+    <view class="list_right">
+      <view>
+        <image class="list_left_img" src="../../../images/my_01.png" />
+      </view>
+      <view class="list_left_title">解除绑定</view>
+    </view>
+    <view class="list_left">
+      <image class="list_left_img" src="../../../images/jt_left.png" />
+    </view>
+  </view>
+</view>

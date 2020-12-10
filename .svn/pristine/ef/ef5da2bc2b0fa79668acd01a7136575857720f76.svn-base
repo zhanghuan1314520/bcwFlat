@@ -1,0 +1,180 @@
+// pages/application/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    value: '',
+    active: 0,
+    // 学习推荐
+    lists: [{
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "待推送",
+      flow: "33.74",
+      state1: "推送至平板"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/img3.jpg",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/img1.jpg",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/img2.jpg",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }],
+    // 实用工具
+    lists1: [{
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }],
+    // 娱乐游戏
+    lists2: [{
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }],
+    // 其它
+    lists3: [{
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }, {
+      imgurl: "../../images/png1.png",
+      title: "朗读训练系统",
+      state: "已安装",
+      flow: "33.74",
+      state1: "从平板卸载"
+    }]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+  onChange(event) {
+    console.log("当前值");
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

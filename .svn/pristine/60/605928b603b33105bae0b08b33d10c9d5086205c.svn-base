@@ -1,0 +1,25 @@
+<view class="content">
+  <form class="page__bd" bindsubmit="formSubmit">
+    <view class="item">
+      <view class="item_right">原始密码</view>
+      <view class="item_left">
+        <input class="weui-input" password='true' name='oldpwd' placeholder="请输入原始密码" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_right">新密码</view>
+      <view class="item_left">
+        <input class="weui-input"  password='true' name='newpwd'  placeholder="请设置新密码" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_right">确认密码</view>
+      <view class="item_left">
+        <input class="weui-input" password='true' name='newpwd2' placeholder="请重新输入密码" />
+      </view>
+      <view class="btn">
+      <van-button round type="info" form-type="submit" block>确认修改</van-button>
+    </view>
+    </view>
+  </form>
+</view>

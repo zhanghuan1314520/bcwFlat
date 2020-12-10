@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="content radius">
+    <form bindsubmit="formSubmit">
+      <view class="item">
+        <view class="item_right">头像</view>
+        <view class="item_left">
+          <image wx:if="{{UserAvatar}}" class="img" src="{{UserAvatar}}" bindtap='chooseimg' mode="aspectFill"  />
+          <image wx:else  class="img" src="../../../images/pz.png" bindtap='chooseimg' mode="aspectFill"  />
+          <!-- <image wx:else  class="img" src="{{ index ==0?'../../../images/girl.png':'../../../images/boy.png'}}" bindtap='chooseimg' mode="aspectFill"  /> -->
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">昵称</view>
+        <view class="item_left">
+          <input class="weui-input" name='userName' placeholder='请输入姓名' maxlength="15" value='{{userName}}' bindinput="userNameInput" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">性别</view>
+        <view class="item_left">
+          <picker name="gender" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">{{index==0?'女':'男'}}</view>
+          </picker>
+        </view>
+        <view class="time_two">
+          <image class="jt_img" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">邮箱</view>
+        <view class="item_left">
+          <input class="weui-input" name='email' placeholder='未填写' value='{{email}}' bindinput="emailInput" />
+        </view>
+      </view>
+      <view class="btn">
+        <button style="width:516rpx;" class="buttons" form-type='submit'>提交</button>
+      </view>
+    </form>
+  </view>
+</view>

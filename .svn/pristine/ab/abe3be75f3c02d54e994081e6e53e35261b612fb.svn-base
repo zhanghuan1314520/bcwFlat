@@ -1,0 +1,45 @@
+// pages/author/code/index.js
+var QRCode = require('../../../utils/qrcode.js')
+var app = getApp();
+var qrcode;
+
+Page({
+    data: {
+        text: '',
+        image: ''
+    },
+    onLoad: function (options) {
+        var code = app.globalData.code
+        var phone = app.globalData.phone
+        console.log(code, phone)
+        console.log(options);
+        qrcode = new QRCode('canvas', {
+            text: "",
+            image: '../../../images/code.png',
+            width: 447,
+            height: 447,
+            colorDark: "#1CA4FC",
+            colorLight: "white",
+            
+            correctLevel: QRCode.CorrectLevel.H,
+        });
+        var value = "phone:" + code + ";" + "source:BCW";
+        qrcode.makeCode(value)
+    },
+    save: function () {
+        console.log('save')
+        wx.showActionSheet({
+            itemList: ['保存图片'],
+            success: function (res) {
+                console.log(res.tapIndex)
+                if (res.tapIndex == 0) {
+                    qrcode.exportImage(function (path) {
+                        wx.saveImageToPhotosAlbum({
+                            filePath: path,
+                        })
+                    })
+                }
+            }
+        })
+    }
+})

@@ -1,0 +1,245 @@
+// pages/author/parent_information/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    array: ['女', '男'],
+    index: 0,
+    email: "", //邮箱
+    userName: "", //昵称
+    avatar: '',//头像
+    images: "",// 上传图片的图片
+    dataImg: "",  // 提交的img
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    wx.getStorage({
+      key: 'userName',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ userName: res.data })
+      },
+    })
+    wx.getStorage({
+      key: 'email',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ email: res.data })
+      },
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ avatar: res.data })
+      },
+    })
+  },
+
+
+  //   /api/doUploadImage   post
+  // 参数：
+  // files： 图片文件  .jpg|.jpeg|.png|.gif 类型
+  // type：goods（固定值）
+  //   修改头像
+  uploadFn: function () {    // 上传图片
+    // var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        console.log("=====", res);
+        const tempFilePaths = res.tempFilePaths[0];
+        this.setData({
+          // images: "../../../images/boy.png"
+          images:  tempFilePaths
+        })
+        wx.uploadFile({
+          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success (res){
+            const data = res.data
+            //do something
+          }
+        })
+        // var tempFilePaths = res.tempFilePaths;
+        // wx.uploadFile({
+        //   url: 'https://1z74t80660.51mypc.cn/bcapi/api/doUploadImage',
+        //   filePath: tempFilePaths[0],
+        //   name: 'file',
+        //   formData: {
+        //     'user': 'test'
+        //   },
+        //   success: function (res) {
+        //     console.log("========", res)
+        //     var data = JSON.parse.data.path;  // 解析img的src
+        //     that.setData({
+        //       images: this.url + data,
+        //       dataImg: data   // 提交时用到的img
+        //     })
+        //   }
+        // })
+      }
+    })
+  },
+
+
+
+  //性别选择
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  formSubmit: function (e) {
+    var that = this;
+    var myreg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/
+    console.log(e.detail.value);
+    // //表单数据
+    var objData = e.detail.value;
+    //异步方式储存表单数据
+    wx.setStorage({ key: 'userName', data: objData.userName })
+    wx.setStorage({ key: 'email', data: objData.email })
+    wx.setStorage({ key: 'avatar', data: objData.avatar })
+
+    if (that.data.userName == '') {
+      wx.showToast({
+        title: '昵称不能为空',
+        icon: "none",
+        duration: 2000,
+        mask: true
+      })
+    } else if (that.data.email == '') {
+      wx.showToast({
+        title: '邮箱不能为空',
+        icon: "none",
+        duration: 2000,
+        mask: true
+      })
+    } else if (!myreg.test(that.data.email)) {
+      wx.showToast({
+        title: '邮箱格式不正确',
+        icon: "none",
+        duration: 2000,
+        mask: true
+      })
+    }
+    else {
+      //服务器代码部分
+      wx.showToast({
+        title: "修改成功！",
+        icon: "none",
+        duration: 2000,
+        mask: true,
+        success() {
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 2000)
+        }
+      })
+
+      // wx.request({
+      //   url: '',//提交接口地址
+      //   method: "POST",
+      //   data: {
+      //     userName: value.name,
+      //     sex: _this.data.sexId,
+      //     email: value.Email,
+      //     image: this.data.dataImg
+      //   },
+      //   success: function (res) {
+      //     if (res.data.status) {
+      //       wx.showToast({
+      //         title: "设置成功",
+      //         icon: 'none',
+      //         duration: 2000,
+      //         mask: true,
+      //         success: function () {
+      //           setTimeout(function () {
+      //             wx.navigateBack({
+      //               delta: 1,
+      //             })
+      //           }, 2000)
+      //         }
+      //       })
+      //       return false;
+      //     }
+      //   }
+      // })
+    }
+  },
+
+
+
+  userNameInput: function (e) {
+    this.data.userName = e.detail.value
+  },
+  emailInput: function (e) {
+    this.data.email = e.detail.value
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.setData({
+      images: "../../../images/boy.png"
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+})

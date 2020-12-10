@@ -1,0 +1,7 @@
+<view>
+  <map id="myMap" longitude="116.021744" latitude="29.683011" scale="16"
+    bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"
+    bindregionchange="regionchange" show-location style="width: 100%; height:{{MapHeight}};">
+    <cover-image class="back_img" src="../../images/map.png"  bindtap="moveTolocation"></cover-image>
+  </map>
+</view>

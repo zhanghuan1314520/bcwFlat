@@ -1,0 +1,142 @@
+/* 搜索框 */
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #804CF7;
+  
+}
+.weui-icon-search {
+  margin-right: 8px;
+  font-size: inherit;
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+.weui-search-bar__text {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+}
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+.weui-icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 8px;
+  font-size: 0;
+}
+.weui-search-bar__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: #9B9B9B;
+  background: #FFFFFF;
+  line-height: 28px;
+}
+.weui-search-bar__cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 30rpx;
+}
+
+/*  */
+.card {
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.img {
+  width: 96rpx;
+  height: 96rpx;
+}
+
+.list-table-view{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 25rpx 20rpx 10rpx 20rpx;
+}
+.list-col-3{
+ flex: 0 0 auto;
+  width: 44.33333333%;
+  color: #797979;
+  padding: 15rpx;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin-bottom: 25rpx;
+}
+.list_left{
+  display: flex;
+  height: 96rpx;
+}
+/* .list_left_one{
+  border-radius: 10rpx;
+} */
+.list_left_two{
+  margin-left: 20rpx;
+}
+.title{
+  font-size: 25rpx;
+  color: #000;
+  font-weight: bold;
+}
+.tip{
+  display: flex;
+  margin: 10rpx 5rpx;
+  font-size: 20rpx;
+}
+.list_right{
+margin: 20rpx;
+}
+.btn{
+  border: 1px solid rgb(89, 38, 209);
+  color: rgb(89, 38, 209);
+  font-size: 25rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 30rpx;
+  margin: 0 20rpx;
+}
+.button {
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  background:#377FF7;
+  color: #FFFFFF;
+  border-radius: 30rpx;
+  text-align: center;
+}

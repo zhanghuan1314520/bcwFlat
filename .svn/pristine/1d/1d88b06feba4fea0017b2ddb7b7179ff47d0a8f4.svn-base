@@ -1,0 +1,199 @@
+// pages/location/index.js
+import { request } from "../../request/index.js";
+var mac = wx.getStorageSync('mac');
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    mapId: "myMap",//wxml中的map的Id值
+    MapHeight: "100vh",
+    latitude:"",
+    longitude:"",
+    markers: [],
+  },
+  moveTolocation: function () {
+    //mapId 就是你在 map 标签中定义的 id
+    let Id = this.data.mapId
+    var mapCtx = wx.createMapContext(Id);
+    mapCtx.moveToLocation();
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+
+    // wx.request({
+    //   url: 'https://pswanmor.edu505.com/api/deviceConfig/updateLocationStatus',
+    //   method:"POST",
+    //   data:{
+    //     locationStatus:1,mac:"88:BF:E4:48:57:8F"
+    //   },
+    //   success:res=>{
+    //     console.log("修改定位开启状态",res.data)
+    //   }
+    // })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    //获取当前的地理位置、速度
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success: function (res) {
+    //     console.log(res);
+    //     //赋值经纬度
+    //     that.setData({
+    //       latitude: res.latitude,
+    //       longitude: res.longitude,
+
+    //     })
+    //   }
+    // })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+
+    let mac = '20:75:55:39:01:65'
+    console.log("根据mac查询位置,", mac);
+    //修改定位开启状态
+    // request({
+    //   url: "deviceConfig/updateLocationStatus?locationStatus=1&mac="+mac, method: "POST",
+    // })
+    //   .then(result => {
+      let oper_mac= wx.getStorageSync('oper_mac')
+      console.log("oper_mac：", oper_mac);
+        wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/updateLocationStatus',
+      method:"POST",
+      data:{
+        locationStatus:1,mac:oper_mac
+      },
+      success:res=>{
+        console.log("修改定位开启状态", res.data);
+
+
+        let loop_time=0
+        let updateStatus_time=res.data.data        
+        this.queryByMac_loop(loop_time, updateStatus_time);
+
+
+        // console.log("根据mac查询位置,,,", mac);
+        // //根据mac查询位置
+        // request({ url: "/deviceLocation/queryByMac?mac="+oper_mac })
+        //   .then(result => {
+        //     console.log("根据mac查询位置", result.data);
+        //     console.log("根据mac查询位置...."+result.data.lat);
+        //     this.setData({
+        //       latitude:result.data.lat,
+        //       longitude:result.data.lng,
+    
+        //     markers:[{
+        //       iconPath: '../../images/map.png',    
+        //       id: 0,      
+        //       latitude: result.data.lat,
+        //       longitude: result.data.lng,
+        //       width: 35,
+        //       height: 35
+        //     }]
+        //   })
+        //   })
+      }
+      
+    })
+
+
+  },
+
+  queryByMac_loop: function (loop_time, updateStatus_time) {
+    console.log("updateStatus_time;", updateStatus_time);
+    console.log("loop_time;", loop_time);
+    let mac = '20:75:55:39:01:65'
+    let oper_mac= wx.getStorageSync('oper_mac')
+        //根据mac查询截屏
+        request({ url: "/deviceLocation/queryByMac?mac="+oper_mac })
+        .then(result => {
+          console.log("根据mac查询截屏", result.data);
+          // if('2020-11-03 12:47:47' > '2020-11-02 18:03:03'){
+          if(result.data.createDate > updateStatus_time){
+            console.log(">>>>>>>>", result.data);
+            // this.setData({
+            //   imgPath: result.data.imgPath
+            // })
+            this.setData({
+              latitude:result.data.lat,
+              longitude:result.data.lng,
+    
+            markers:[{
+              iconPath: '../../images/map.png',    
+              id: 0,      
+              latitude: result.data.lat,
+              longitude: result.data.lng,
+              width: 35,
+              height: 35
+            }]
+          })
+        } else {
+          loop_time = loop_time+1
+          //开始轮询查看屏幕接口
+          if(loop_time<0){
+            this.queryByMac_loop(loop_time, updateStatus_time);
+          }
+        }
+        })
+
+
+  },  
+
+
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

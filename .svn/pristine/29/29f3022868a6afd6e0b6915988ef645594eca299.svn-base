@@ -1,0 +1,39 @@
+/* pages/author/device_information/index.wxss */
+.content {
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 30rpx;
+}
+
+.item {
+  display: flex;
+  padding: 10rpx;
+}
+
+.item_right {
+  flex: 1;
+  font-weight: 500;
+  align-self: center;
+  padding: 23rpx 0;
+  font-size: 30rpx;
+}
+
+.item_left {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  font-size: 28rpx;
+}
+.time_two{
+  padding-top: 27rpx;
+}
+.img1{
+  width: 35rpx;
+  height: 35rpx;
+}
+.btn{
+  margin: 40rpx 130rpx 0 130rpx;
+  border-radius: 50%;
+}
+

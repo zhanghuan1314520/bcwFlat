@@ -1,0 +1,76 @@
+/* pages/author/parent_information/index.wxss */
+.container {
+  background: -webkit-linear-gradient(top,#804CF7,#804CF7,#DEE0FE);
+  width: 100%;
+  height: 100%;
+  padding-top: 40rpx;
+}
+.content {
+  margin: 0 28rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.item {
+  display: flex;
+ padding: 20rpx 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.item:nth-child(4){
+  border: none;
+}
+
+.item_right {
+  flex: 1;
+  font-weight: 500;
+  align-self: center;
+  padding: 23rpx 0;
+  font-size: 32rpx;
+  color:#1F1F1F;
+  font-weight: bold;
+}
+
+.item_left {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  font-size: 30rpx;
+  color: #B4B4B4;
+  font-weight: bold;
+}
+
+.img {
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 20rpx;
+}
+
+.time_two {
+  padding-top: 28rpx;
+}
+
+.img1 {
+  width: 33rpx;
+  height: 33rpx;
+}
+
+input{
+  font-size: 24rpx;
+  color: #666;
+}
+.btn {
+  position: absolute;
+  margin: 0 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+ padding-top: 104rpx;
+ font-size: 32rpx;
+}
+.btn >button{
+background-color: #804CF7;
+font-weight: bold;
+color: #fff;
+font-size: 36rpx;
+border-radius: 38rpx;
+}

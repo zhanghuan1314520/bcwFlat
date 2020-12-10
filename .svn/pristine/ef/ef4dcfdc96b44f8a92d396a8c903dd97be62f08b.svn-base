@@ -1,0 +1,71 @@
+<view class="content3">
+  <!-- 娱乐类内容时长限制开始 -->
+  <view class="nav radius">
+    <view class="nav_top">
+      <view class="top_list">
+        <view class="top_title">娱乐类内容时长限制</view>
+        <view class="top_btn">
+          <view class="body-view">
+            <switch bindchange="switch1Change" />
+          </view>
+        </view>
+      </view>
+      <view class="tip">设置的时长为平板每天娱乐类应用的可用总时长</view>
+    </view>
+    <view class="nav_button" wx:if="{{shows==true}}">
+      <view class="time1">
+        <view class="time_one1">
+          <view class="section">
+            <picker name="id" value="{{array[index].id}}" data-selecthx="{{array[index].name}}" range="{{array}}"
+              range-key="{{'name'}}" bindchange="bindPickerChange">
+              <view class="picker">
+                {{array[index].name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 娱乐类内容时长限制结束 -->
+  <!-- 整机锁定时段设置开始 -->
+  <view class="nav radius">
+    <view class="nav_top">
+      <view class="top_list">
+        <view class="top_title">整机锁定时段设置</view>
+        <view class="top_btn">
+          <view class="body-view">
+            <switch bindchange="switch1Change1" />
+          </view>
+        </view>
+      </view>
+      <view class="tip">平板在设置的时间段内不能使用,平板处于锁屏状态</view>
+    </view>
+    <view class="nav_button" wx:if="{{shows1==true}}">
+      <view class="time">
+        <view class="time_one one">
+          <view>
+            <view class="section">
+              <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" name="time">
+                <view class="picker">
+                  {{time}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="br">——</view>
+        <view class="time_two one">
+            <view class="section">
+              <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1" name="time">
+                <view class="picker">
+                  {{time1}}
+                </view>
+              </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--整机锁定时段设置结束 -->
+</view>

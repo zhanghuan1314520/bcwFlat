@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "修改家长信息",
+  "usingComponents": {
+    "van-uploader": "@vant/weapp/uploader/index"
+  }
+}

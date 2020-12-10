@@ -1,0 +1,82 @@
+<view class="container">
+  <view class="header">
+    <view class="header_left">
+      <image class="img" src="../../images/img1.jpg" mode="aspectFill" />
+    </view>
+    <view class="header_right">
+      <view style="height: 50rpx;line-height: 50rpx;">不错家长</view>
+      <view style="height: 50rpx;line-height: 50rpx;">{{localPhone}}</view>
+    </view>
+  </view>
+
+
+  <view class="content radius">
+    <view class="list" bindtap="childrens">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_01.png" mode="aspectFill" />
+        </view>
+        <view class="title">我的孩子</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view>
+    <!-- <view class="list" bindtap="information_updatas">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_02.png" mode="aspectFill" />
+        </view>
+        <view class="title">家长设置</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view> -->
+    <view class="list" bindtap="abouts">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_03.png" mode="aspectFill" />
+        </view>
+        <view class="title">关于我们</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view>
+    <!-- <view class="list" bindtap="feedbacks">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_04.png" mode="aspectFill" />
+        </view>
+        <view class="title">问题反馈</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view> -->
+    <view class="list" bindtap="quit">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_05.png" mode="aspectFill" />
+        </view>
+        <view class="title">退出账号</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view>
+
+    <view class="list" bindtap="code">
+      <view class="list_right">
+        <view class="imag">
+          <image class="jt_img" src="../../images/my_03.png" mode="aspectFill" />
+        </view>
+        <view class="title">家长二维码</view>
+      </view>
+      <view class="list_left">
+        <image class="jt_img" src="../../images/jt_left.png" />
+      </view>
+    </view>
+  </view>
+</view>

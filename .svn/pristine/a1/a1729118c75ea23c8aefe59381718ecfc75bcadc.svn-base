@@ -1,0 +1,165 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background: url('https://i.loli.net/2020/09/11/mXQ9jzARrN8JKdY.jpg');
+  background-size: 400vw 100vh;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 内容部分开始 */
+.content {
+  background-color: #fff;
+  border-radius: 10rpx;
+  position: fixed;
+  top: 400rpx;
+  width: 650rpx;
+  margin:30rpx 50rpx;
+  padding: 10rpx 0 0 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab1 {
+  color: #999;
+  font-size: 30rpx;
+  padding: 15rpx 10rpx;
+}
+
+.tab2 {
+  margin-left: 20rpx;
+  padding: 15rpx 10rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+
+.top .active {
+  color: #000;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+
+.log {
+  padding: 20rpx 0 0 0;
+}
+
+.reg {
+  padding: 20rpx 0;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.content_form {
+  display: flex;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.content_form_one {
+  flex: 1;
+  padding: 6rpx 0;
+  margin-left: 35rpx;
+}
+
+.content_form_two {
+  flex: 10;
+  display: flex;
+  font-size: 25rpx;
+}
+
+/* 内容部分结束*/
+/* 登录按钮开始 */
+.btn {
+  padding: 20rpx 100rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn1 {
+  padding: 20rpx 100rpx 10rpx 100rpx;
+}
+
+/* 登录按钮结束 */
+/* footer部分开始 */
+.footer {
+  display: flex;
+  height: 100rpx;
+  margin: 10rpx 0  0 0;
+}
+
+.footer_right {
+  display: flex;
+  flex: 3;
+  font-size: 20rpx;
+  align-self: center;
+  margin-left: 35rpx;
+}
+
+.footer_left {
+  flex: 1;
+  font-size: 23rpx;
+  align-self: center;
+}
+
+.tongyi {
+  padding: 10rpx 0;
+}
+
+/*复选框外框样式*/
+checkbox .wx-checkbox-input {
+  width: 25rpx;
+  height: 25rpx;
+  border: 1rpx solid #999;
+  border-radius: 100%;
+}
+
+/*复选框选中后内部样式*/
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 100%;
+  height: 100%;
+  background: #4268EF;
+  border-radius: 100%;
+  content: '';
+  transform: translate(-50%, -50%) scale(0.1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.footer_checbox {
+  padding: 10rpx 0;
+}
+
+/* footer部分结束 */
+
+/* 验证码开始 */
+.content_form_two_right {
+  flex: 1;
+}
+
+.content_form_two_left {
+  flex: 1;
+  text-align: center;
+  align-self: center;
+  font-size: 25rpx;
+}
+
+.button {
+  width: 200rpx;
+  font-size: 25rpx;
+  background: #33FF99;
+  margin-left: 50rpx;
+  color: #FFFFFF;
+}
+/* 验证码结束 */

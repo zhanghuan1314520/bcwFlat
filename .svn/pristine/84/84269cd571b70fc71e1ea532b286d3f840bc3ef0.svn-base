@@ -1,0 +1,18 @@
+/* pages/author/feedback/index.wxss */
+.content{
+  margin: 20rpx;
+}
+.nav{
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  height: 300rpx;
+  font-size: 25rpx;
+}
+textarea {
+width: 100%;
+}
+.btn{
+  margin-top: 50rpx;
+  padding: 0 120rpx;
+}

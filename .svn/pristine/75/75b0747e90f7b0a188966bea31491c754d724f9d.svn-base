@@ -1,0 +1,59 @@
+/* pages/time/index.wxss */
+.content{
+  margin: 20rpx;
+}
+.nav{
+  background-color: #fff;
+  padding:30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.top_list{
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.top_title{
+  flex: 10;
+  font-weight: bold;
+  color: #000;
+  padding: 10rpx 0;
+}
+.top_btn{
+  flex: 2;
+}
+.tip{
+  font-size: 25rpx;
+  padding: 10rpx 0;
+  color: #ccc;
+}
+.nav_button{
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  padding: 20rpx 10rpx;
+  margin-top: 10rpx;
+}
+.name{
+  flex: 1;
+ margin-left: 10rpx;
+  color: #819FCD;
+}
+.time{
+  flex: 1;
+  display: flex;
+}
+.img{
+  width: 35rpx;
+  height: 25rpx;
+}
+.time_one{
+  flex: 4;
+  text-align: right;
+  align-self: center;
+  color: #4268EF;
+}
+.time_two{
+  flex: 1;
+  padding-left: 10rpx;
+}

@@ -1,0 +1,175 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+/* 背景容器 */
+.container {
+  background: url('https://i.loli.net/2020/09/11/mXQ9jzARrN8JKdY.jpg');
+  background-size: 400vw 100vh;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+/* 内容部分开始 */
+.content {
+  background-color: #fff;
+  border-radius: 10rpx;
+  position: fixed;
+  top: 400rpx;
+  width: 650rpx;
+  margin:30rpx 50rpx;
+  padding: 10rpx 0 0 0;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+/* 登录/注册切换 */
+.tab1 {
+  color: #999;
+  font-size: 35rpx;
+  padding: 15rpx 10rpx;
+}
+.tab2 {
+  margin-left: 20rpx;
+  padding: 15rpx 10rpx;
+  color: #999;
+  font-size: 35rpx;
+}
+.top .active {
+  color: #000;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+/* 登录部分 */
+.log {
+  padding: 20rpx 0 0 0;
+}
+/* 注册部分 */
+.reg {
+  padding: 20rpx 0;
+}
+.content_form_two1 {
+  flex: 10;
+  display: flex;
+  font-size: 25rpx;
+}
+/* 验证码开始 */
+.content_form_two_right {
+  flex: 1;
+  padding-top: 10rpx;
+}
+.content_form_two_left {
+  flex: 1;
+  text-align: center;
+  align-self: center;
+  font-size: 25rpx;
+}
+.button1 {
+  width: 200rpx;
+  font-size: 28rpx;
+  background:#377FF7;
+  color: #FFFFFF;
+}
+.content_form_one1 {
+  flex: 1;
+ padding-top: 15rpx;
+  margin-left: 35rpx;
+}
+/* 图标尺寸 */
+.img {
+  width: 30rpx;
+  height: 30rpx;
+}
+/* 登录注册统一部分 */
+.content_form {
+  display: flex;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+.content_form_one {
+  flex: 1;
+  padding: 5rpx 0;
+  margin-left: 35rpx;
+}
+.content_form_two {
+  flex: 10;
+  display: flex;
+  font-size: 25rpx;
+}
+/* 内容部分结束*/
+
+/* 登录按钮外部容器*/
+  .btn {
+  padding: 15rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+/* 注册并登录按钮外部容器 */
+.btn1 {
+  padding: 20rpx 100rpx 10rpx 100rpx;
+}
+/* footer部分开始 */
+.footer {
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 25rpx;
+}
+.footer_right {
+  display: flex;
+  flex: 3;
+  align-self: center;
+  margin-left: 35rpx;
+}
+.footer_left {
+  flex: 1;
+  align-self: center;
+}
+.tongyi {
+  flex: 8;
+}
+
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+  border-radius: 50%;/* 圆角 */
+  width: 25rpx; /* 背景的宽 */
+  height: 25rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: none;
+  background: #4268EF;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;/* 圆角 */
+  width: 25rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 25rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 25rpx;
+  text-align: center;
+  font-size:30rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.footer_checbox {
+  flex: 1;
+}
+/* footer部分结束 */
+/* 登录按钮 */
+.button {
+  width: 400rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  background:#377FF7;
+  color: #FFFFFF;
+  border-radius: 30rpx;
+  text-align: center;
+}

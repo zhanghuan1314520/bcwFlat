@@ -1,0 +1,55 @@
+/* pages/author/change_password/index.wxss */
+.container {
+  background: -webkit-linear-gradient(top,#804CF7,#804CF7,#DEE0FE);
+  width: 100%;
+  height: 100%;
+  padding-top: 50rpx;
+}
+.content {
+  position: relative;
+  margin: 0 28rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.item {
+  display: flex;
+  padding: 30rpx;
+  font-size: 32rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+  border-bottom: 1px solid #dcdcdd;
+}
+
+.item_right {
+  flex: 2;
+  align-self: center;
+  padding: 23rpx 0;
+}
+
+.item_left {
+  flex: 5;
+  align-self: center;
+  font-size: 30rpx;
+}
+
+/* .btn {
+  width: 400rpx;
+  margin: 80rpx 120rpx 0 120rpx;
+  padding-top: 120rpx;
+  border-radius: 50%;
+} */
+.btn {
+  position: absolute;
+  margin: 0 45rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+ padding-top: 208rpx;
+ font-size: 32rpx;
+}
+.btn >button{
+background-color: #804CF7;
+font-weight: bold;
+color: #fff;
+font-size: 36rpx;
+border-radius: 38rpx;
+}

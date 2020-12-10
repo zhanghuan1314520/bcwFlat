@@ -1,0 +1,20 @@
+/* pages/inspect/index.wxss */
+page{
+  background-color: #fff;
+}
+.content{
+  margin: 20rpx;
+}
+.title{
+  padding: 10rpx 0;
+}
+.imgs{
+   margin: 10rpx 0;
+  width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.img{
+  width: 100%;
+  height: 300rpx;
+}

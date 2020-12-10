@@ -1,0 +1,16 @@
+/* 步骤条 */
+.content{
+  margin: 40rpx 28rpx;
+  background-color: rgb(151, 120, 120);
+}
+.aa{
+  width: 608rpx;
+  height: 104rpx;
+  background-color: #804CF7;
+  border-radius: 20rpx;
+  padding: 20rpx 10rpx;
+
+}
+.bb{
+  background-color: rgb(140, 161, 218);
+}

@@ -1,0 +1,7 @@
+<view class="content">
+  <van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical"  desc-class="aa">
+   <view  custom-class="bb">
+     <view></view>
+   </view>
+  </van-steps>
+</view>

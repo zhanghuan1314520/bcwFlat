@@ -1,0 +1,154 @@
+// pages/administration/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    active: 0,
+    checked: false,
+    shows:false,
+    // 系统应用
+    lists: [{
+      imgurl: "../../images/img1.jpg",
+      title: "文件管理",
+      state: "已显示",
+      flow: "0.45"
+    }, {
+      imgurl: "../../images/img2.jpg",
+      title: "FM电台",
+      state: "已显示",
+      flow: "0.55"
+    }, {
+      imgurl: "../../images/img3.jpg",
+      title: "计算器",
+      state: "待显示",
+      flow: "0.89"
+    }, {
+      imgurl: "../../images/img2.jpg",
+      title: "录音机",
+      state: "待显示",
+      flow: "258"
+    }, {
+      imgurl: "../../images/img3.jpg",
+      title: "录音机",
+      state: "待显示",
+      flow: "258"
+    }, {
+      imgurl: "../../images/img1.jpg",
+      title: "录音机",
+      state: "待显示",
+      flow: "258"
+    }],
+    lists1: [{
+      imgurl: "../../images/img2.jpg",
+      title: "朗读训练系统",
+      state: "已安装",
+      state1: "从平板卸载",
+      flow: "0.89"
+    }, {
+      imgurl: "../../images/img3.jpg",
+      title: "学霸1对1",
+      state: "已安装",
+      state1: "从平板卸载",
+      flow: "0.89"
+    }, {
+      imgurl: "../../images/img2.jpg",
+      title: "高中化学",
+      state: "已安装",
+      state1: "从平板卸载",
+      flow: "0.89"
+    }],
+     //时间段选择
+     arrayIndex: 0,
+     time: '00:00-00:00'
+  },
+  // 第三方应用开关控制部分
+  switch1Change:function(e){
+    this.setData({
+      shows:e.detail.value
+    });
+    setTimeout( () =>{
+      wx.showToast({
+        title: '设置成功',
+        icon:"none",
+        duration:2000,
+        success:function(){},
+        fail:function(){}
+      })
+    },1000 )
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+  
+  //系统应用开关部分
+  onChange1({ detail }) {
+    var that = this;
+    console.log(detail)
+    // 需要手动对 checked 状态进行更新
+    this.setData({ checked: detail });
+  },
+  //时间段选择
+  bindTimeChange: function (e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+
+  onChange:function(){
+    console.log("")
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

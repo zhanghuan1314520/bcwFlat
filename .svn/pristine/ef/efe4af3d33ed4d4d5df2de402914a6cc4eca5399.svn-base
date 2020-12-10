@@ -1,0 +1,95 @@
+/* pages/time/index.wxss */
+.content {
+  margin: 20rpx;
+}
+
+.nav {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.nav_top{
+  border-bottom: 1px solid #dcdccd;
+  padding-bottom: 20rpx;
+}
+
+.top_list {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.top_title {
+  flex: 10;
+  font-weight: bold;
+  color:#1F1F1F;
+  padding: 10rpx 0;
+  font-size: 32rpx;
+}
+
+.top_btn {
+  flex: 2;
+}
+
+.tip {
+  font-size: 20rpx;
+  padding: 10rpx 0;
+  color:#666666;
+}
+
+/* .nav_button {
+  padding: 10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #804CF8;
+  font-weight: bold;
+} */
+.nav_button {
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+
+.name {
+  flex: 1;
+  margin-left: 10rpx;
+  color: #819FCD;
+}
+
+.time_one1{
+  align-self: center;
+  color: #804CF8;
+  border: 1px solid #804CF7;
+  border-radius: 10rpx;
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+
+.time {
+
+  display: flex;
+  text-align: center;
+}
+.time_one{
+  flex: 1;
+}
+.time_two{
+  flex: 1;
+}
+
+.one{
+  align-self: center;
+  color: #804CF8;
+  border: 1px solid #804CF7;
+  border-radius: 10rpx;
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.br{
+  color:#804CF8;
+  padding: 5rpx;
+}

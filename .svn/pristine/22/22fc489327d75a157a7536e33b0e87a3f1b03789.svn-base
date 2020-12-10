@@ -1,0 +1,6 @@
+<view class="content">
+<view class="title">平板当前的画面</view>
+<view class="imgs">
+<image class="img" src="../../images/img2.jpg" mode="scaleToFill"></image>
+</view>
+</view>

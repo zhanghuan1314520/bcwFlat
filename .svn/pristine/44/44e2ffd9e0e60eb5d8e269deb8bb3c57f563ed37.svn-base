@@ -1,0 +1,8 @@
+/* pages/service_agreement/index.wxss */
+.content{
+  margin: 30rpx;
+  padding: 30rpx;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}

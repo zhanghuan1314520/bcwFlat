@@ -1,0 +1,8 @@
+/* pages/location/index.wxss */
+.back_img{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+left: 640rpx;
+top: 1050rpx;
+}

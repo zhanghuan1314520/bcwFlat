@@ -1,0 +1,71 @@
+<view class="header">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper-item wx:for="{{banners}}"  wx:for-item="banner" wx:key="index">
+      <image class="imgs" src="{{banner.img}}" mode="scaleToFill" />
+    </swiper-item>
+  </swiper>
+</view>
+<view class="content">
+  <view class="list-masonry">
+    <!-- 日志 -->
+    <view class="card unified1" bindtap="journal">
+      <view class="card_left">
+        <image class="img" src="../../images/yiliaohang222.png"  mode="aspectFit" />
+      </view>
+      <view class="card_right">
+        <view class="name">行为日志11</view>
+        <view class="tip">平板App使用统计分析</view>
+      </view>
+    </view>
+    <!-- 时间 -->
+    <view class="card unified1 unified2" bindtap="time">
+      <view class="card_left">
+        <image class="img" src="../../images/shijianguanli.png" />
+      </view>
+      <view class="card_right">
+        <view class="name">时间管理</view>
+        <view class="tip">有效管理平板使用时间</view>
+      </view>
+    </view>
+    <!--浏览器 -->
+    <view class="card unified1 unified2" bindtap="browser">
+      <view class="card_left">
+        <image class="img" src="../../images/liulanqi.png" />
+      </view>
+      <view class="card_right">
+        <view class="name">浏览器</view>
+        <view class="tip">控制浏览器能否上网</view>
+      </view>
+    </view>
+    <!-- 锁屏 -->
+    <view class="card unified1 unified2" bindtap="lock">
+      <view class="card_left">
+        <image class="img" src="../../images/suoping.png" />
+      </view>
+      <view class="card_right">
+        <view class="name">一键锁屏</view>
+        <view class="tip">平板App使用统计分析</view>
+      </view>
+    </view>
+    <!-- 定位 -->
+    <view class="card unified1 unified2" bindtap="location">
+      <view class="card_left">
+        <image class="img" src="../../images/dingwei.png" />
+      </view>
+      <view class="card_right">
+        <view class="name">实时定位</view>
+        <view class="tip">查看平板当前所在位置</view>
+      </view>
+    </view>
+    <!-- 查看 -->
+    <view class="card unified1 unified2" bindtap="inspect">
+      <view class="card_left">
+        <image class="img" src="../../images/chakan.png"  mode="aspectFit" />
+      </view>
+      <view class="card_right">
+        <view class="name">查看 屏幕</view>
+        <view class="tip">平板当前屏幕拍照查看</view>
+      </view>
+    </view>
+  </view>
+</view>

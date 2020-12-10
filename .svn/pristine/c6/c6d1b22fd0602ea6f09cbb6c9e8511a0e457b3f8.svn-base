@@ -1,0 +1,60 @@
+/* pages/home/index.wxss */
+.header {
+  margin: 0 28rpx;
+  overflow: hidden;
+}
+
+swiper {
+  height: 300rpx;
+}
+
+.imgs {
+  width: 100%;
+  height: 100%;
+}
+.img_selected{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx 0;
+}
+
+.case-page{
+  margin: 40rpx 28rpx 0 28rpx;
+}
+.list-masonry{
+  column-count: 2;
+}
+.item-masonry{
+  width: 336rpx;
+  height: 200rpx;
+  background-color: #fff;
+  break-inside: avoid;/*避免在元素内部插入分页符*/
+  box-sizing: border-box; 
+  padding: 20rpx 10rpx;
+  margin-bottom:40rpx;
+  display: flex;
+}
+.item-masonry-img{
+  margin: 30rpx 0;
+}
+.item-masonry-img image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.item-masonry-view{
+  margin-left: 10rpx;
+  text-align: center;
+}
+.item-masonry-view-title{
+  padding: 28rpx 0;
+  color: #1F1F1F;
+  font-weight: bold;
+  font-size: 32rpx;
+  letter-spacing:4px;
+}
+.item-masonry-view-tip{
+  color: #666666;
+  font-weight: bold;
+  font-size: 18rpx;
+  letter-spacing:1px;
+}

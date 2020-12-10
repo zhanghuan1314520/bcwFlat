@@ -1,0 +1,33 @@
+<view class="header_list">
+  <!-- 标题部分开始 -->
+  <view class="header_title">
+    <view class="header_title_right">
+      <image class="list_img1" class="list_img1" src="../../../images/xueshimao.png"></image>
+    </view>
+    <view class="header_title_left">绑定的孩子</view>
+  </view>
+  <!-- 标题部分结束 -->
+  <!-- 列表部分开始 -->
+  <view class="content_list" wx:for="{{list}}" wx:key="id">
+    <navigator url="/pages/author/children_details/index?studentName={{item.studentName}}&gender={{item.gender}}&studentCode={{item.studentCode}}&mac={{item.mac}}">
+      <view class="content_box_one">
+        <view>
+          <image class="list_img2" src="../../../images/girl.png"></image>
+        </view>
+        <view class="name">{{item.studentName}}</view>
+        <view class="gender">{{item.gender==0?'女':'男'}}</view>
+        <view class="studentCode">学号：{{item.studentCode}}</view>
+        <view class="imgs">
+          <image class="list_img3" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+    </navigator>
+    <view class="content_box_two" bindtap="relieve" data-id="{{index}}">
+      <view>解除绑定</view>
+      <view>
+        <image class="list_img3" src="../../../images/jt_left.png" />
+      </view>
+    </view>
+  </view>
+  <!-- 列表部分结束-->
+</view>

@@ -1,0 +1,21 @@
+/* pages/author/feedback/index.wxss */
+.content{
+  margin:0 28rpx;
+}
+.nav{
+  padding: 30rpx;
+  height: 300rpx;
+  font-size: 30rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+}
+textarea {
+width: 100%;
+font-size: 25rpx;
+line-height: 10rpx;
+}
+.btn {
+  position: absolute;
+  margin: 0 90rpx;
+ padding-top: 104rpx;
+}

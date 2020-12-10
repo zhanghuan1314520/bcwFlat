@@ -1,0 +1,14 @@
+<view class="content1">
+  <view  wx:if="{{a==1}}">
+    <view class="title">平板当前的画面</view>
+  <swiper class="imgs">
+    <swiper-item  wx:for="{{imglist}}" wx:for-item="image" wx:key="id">
+      <image class="img"  src="https://pswanmor.edu505.com/api/{{imgPath.imgPath}}"  data-src="{{image}}" bindtap="previewImage" mode="scaleToFill"  lazy-load/>
+    </swiper-item>
+  </swiper>
+  </view>
+  <view wx:else  class="selected">
+       <image class="img1"  src="../../images/sb.png" mode="scaleToFill"  lazy-load/>
+      <view class="tip">没有已绑定的孩子！</view>
+    </view>
+</view>

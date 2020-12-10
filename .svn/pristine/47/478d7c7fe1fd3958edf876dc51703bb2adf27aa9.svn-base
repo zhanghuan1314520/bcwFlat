@@ -1,0 +1,42 @@
+/* pages/inspect/index.wxss */
+page {
+  background-color: #dfe1fd;
+}
+
+.content1 {
+  margin: 20rpx 28rpx;
+}
+
+.title {
+  padding: 10rpx 0;
+}
+
+.imgs {
+  margin: 10rpx 0;
+  width: 694rpx;
+  height: 435rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+  height: 435rpx;
+  border-radius: 20rpx;
+}
+.img1{
+  width: 277rpx;
+  height: 268rpx;
+}
+.selected{
+  width: 694rpx;
+  height: 400rpx;
+  text-align: center;
+  margin-top: 196rpx;
+}
+.tip{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #804CF7;
+  font-weight: 600;
+  padding-left: 40rpx;
+}

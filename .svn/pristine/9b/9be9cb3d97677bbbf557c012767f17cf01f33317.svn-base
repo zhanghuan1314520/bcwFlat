@@ -1,0 +1,36 @@
+<view class="content">
+  <!-- 整机锁定时段设置开始 -->
+  <view class="nav">
+    <view class="nav_top">
+      <view class="top_list">
+        <view class="top_title">浏览器控制</view>
+        <view class="top_btn">
+          <van-switch checked="{{ checked }}" size="28px" bind:change="onChange" active-color="#377FF6"
+            inactive-color="#8A98A2" />
+        </view>
+      </view>
+      <view class="tip">控制状态打开:浏览器上网时间段家长设定</view>
+      <view class="tip">控制状态关闭:上网策略学校确定,默认禁止上网</view>
+    </view>
+    <view class="nav_button">
+      <view class="name">浏览器上网时间段</view>
+      <view class="time">
+        <view class="time_one">
+          <view>
+            <view class="section">
+              <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" name="time">
+                <view class="picker">
+                  {{time}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="time_two">
+          <image class="img" src="../../images/jt.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--整机锁定时段设置结束 -->
+</view>

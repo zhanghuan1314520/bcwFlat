@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "应用管理",
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  }
+}

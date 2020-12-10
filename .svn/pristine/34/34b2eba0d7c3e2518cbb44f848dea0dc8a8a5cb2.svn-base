@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="content radius">
+    <form class="page__bd" bindsubmit="formSubmit">
+      <view class="item">
+        <view class="item_right">头像</view>
+        <view class="item_left" name="image1">
+          <image class="img" src="{{images}}" bindtap="uploadFn" mode="aspectFill" />
+          <!-- <image class="img" src='../../../images/img2.jpg' /> -->
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">昵称</view>
+        <view class="item_left">
+          <input class="weui-input"  placeholder-class="place" name="name" value="{{name}}" placeholder="未填写" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">性别</view>
+        <view class="item_left">
+          <picker name="areaPicker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="time_two">
+          <image class="jt_img" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">邮箱</view>
+        <view class="item_left">
+          <input class="weui-input" value='{{Email}}' placeholder-class="place" name='Email' placeholder="未填写" />
+        </view>
+      </view>
+      <view class="item" bindtap="pw">
+        <view class="item_right">修改密码</view>
+        <view class="item_left">
+          <view class="time_two">
+            <image class="jt_img" src="../../../images/jt_left.png" />
+          </view>
+        </view>
+      </view>
+      <view class="item" bindtap="code">
+        <view class="item_right">家长二维码</view>
+        <view class="item_left">
+          <view class="time_two">
+            <image class="jt_img" src="../../../images/jt_left.png" />
+          </view>
+        </view>
+      </view>
+      <view class="btn">
+        <button style="width:516rpx;" class="buttons" form-type='submit' class="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

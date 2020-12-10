@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="content radius">
+    <form bindsubmit="formSubmit">
+      <view class="item">
+        <view class="item_right">头像</view>
+        <view class="item_left">
+          <image class="img" wx:for="{{imagesList}}" src="{{item}}" name="avatar" value='{{avatar}}' bindtap="uploadFn"
+            mode="aspectFill" wx:key="id" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">昵称</view>
+        <view class="item_left">
+          <input class="weui-input" name='userName' placeholder='请输入姓名' maxlength="20" value='{{userName}}' />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">性别</view>
+        <view class="item_left">
+          <picker name="areaPicker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="time_two">
+          <image class="jt_img" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">邮箱</view>
+        <view class="item_left">
+          <input class="weui-input" name='email' placeholder='请输入邮箱' value='{{email}}' />
+        </view>
+      </view>
+      <view class="btn">
+        <button style="width:516rpx;" class="buttons" form-type='submit'>提交</button>
+      </view>
+    </form>
+  </view>
+</view>

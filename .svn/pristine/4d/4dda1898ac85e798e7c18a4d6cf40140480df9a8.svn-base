@@ -1,0 +1,8 @@
+<view class="content">
+  <view class="nav">
+    <textarea  placeholder="请输入你遇到的问题或建议..." bindblur="getDataBindTap" />
+  </view>
+</view>
+<view class="btn">
+  <van-button round type="info" block>发送</van-button>
+</view>

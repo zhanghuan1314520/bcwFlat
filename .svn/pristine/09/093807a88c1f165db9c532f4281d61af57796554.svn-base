@@ -1,0 +1,12 @@
+<view class="content">
+  <view class="item1">
+    <view class="content_right">客服热线</view>
+    <view class="content_left">
+      <view bindtap='copyText' data-text="{{contents}}">{{contents}}</view>
+    </view>
+  </view>
+  <view class="item1">
+    <view class="content_right">微信公众号</view>
+    <view class="content_left">不错先生助教平板</view>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+ <!--搜索框  -->
+ <view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <!--点击之后，出现input框  -->
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" value="{{inpValue}}" placeholder="请输入您要搜索的商品" bindinput="handleInput" focus="{{inputShowed}}" />
+      <!--输入款字数大于0，则显示清除按钮  -->
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <!--没点击之前，只是一些文字和图标  -->
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <!--动态出现的“取消”键  -->
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+
+<view class="search_content">
+  <!-- <view class="search_item" wx:for="{{goods}}" wx:key="goods_id">
+    {{item.goods_name}} -->
+  <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#804CF7" color="#804CF7">
+    <van-tab title="学习推荐">
+      <view class="list-table-view">
+        <view class="list-col-3" wx:for="{{lists}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" src="{{item.imgurl}}" mode="aspectFill" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.title}}</view>
+              <view class="tip">
+                <view style=" color: red;">{{item.state}}</view>
+                <view style=" color:#ccc; padding: 0 10rpx;">{{item.flow}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn">{{item.state1}}</View>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="实用工具">
+      <view class="list-table-view">
+        <view class="list-col-3" wx:for="{{lists1}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" src="{{item.imgurl}}" mode="aspectFill" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.title}}</view>
+              <view class="tip">
+                <view style=" color: chartreuse;">{{item.state}}</view>
+                <view style=" color:#ccc; padding: 0 10rpx;">{{item.flow}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn">{{item.state1}}</View>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="娱乐游戏">
+      <view class="list-table-view">
+        <view class="list-col-3" wx:for="{{lists2}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" src="{{item.imgurl}}" mode="aspectFill" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.title}}</view>
+              <view class="tip">
+                <view style=" color: chartreuse;">{{item.state}}</view>
+                <view style=" color:#ccc; padding: 0 10rpx;">{{item.flow}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn">{{item.state1}}</View>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="其它">
+      <view class="list-table-view">
+        <view class="list-col-3" wx:for="{{lists3}}" wx:for-item="item" wx:key="id">
+          <view class="list_left">
+            <view class="list_left_one">
+              <image class="img" src="{{item.imgurl}}" mode="aspectFill" />
+            </view>
+            <view class="list_left_two">
+              <view class="title">{{item.title}}</view>
+              <view class="tip">
+                <view style=" color: chartreuse;">{{item.state}}</view>
+                <view style=" color:#ccc; padding: 0 10rpx;">{{item.flow}}M</view>
+              </view>
+            </view>
+          </view>
+          <view class="list_right">
+            <View class="btn">{{item.state1}}</View>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

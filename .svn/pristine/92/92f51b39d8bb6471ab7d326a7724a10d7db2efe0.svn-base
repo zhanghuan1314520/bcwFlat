@@ -1,0 +1,167 @@
+// pages/author/parent_information/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    array: ['女', '男'],
+    index: 0,
+    addTypeDis: false,
+    actionType: true,
+    addTypeData: "",
+    email: "", //邮箱
+    userName: "", //昵称
+    updata:"",
+    imagesList: ['../../../images/banner1.png'],// 默认头像
+    avatar:''
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    wx.getStorage({
+      key: 'userName',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ userName: res.data })
+      },
+    })
+    wx.getStorage({
+      key: 'email',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ email: res.data })
+      },
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ avatar: res.data })
+      },
+    })
+  },
+
+  // 修改头像
+  uploadFn: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success:(res) =>{
+        wx.setStorageSync('avatar', res.tempFilePaths);
+        // tempFilePath可以作为img标签的src属性显示图片
+        console.log("这是缓存里面的数据avatar",wx.getStorageSync('avatar'))
+        console.log("图片",res);
+        that.setData({
+          imagesList: res.tempFilePaths
+        })
+        // wx.uploadFile({
+        //   //  url: config.UPLOADFILE, //图片上传至开发服务器接口
+        //   filePath: tempFilePath,
+        //   name: 'file',
+        //   formData: {},
+        //   success(res) {
+        //     const data = res.data;
+        //     console.log(data);
+        //   }
+        // })
+      }
+    })
+  },
+  //性别选择
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  formSubmit: function (e) {
+    console.log(e.detail.value);
+    // //表单数据
+    var objData = e.detail.value;
+    // if (objData.userName && objData.email) {
+      //异步方式储存表单数据
+      wx.setStorage({ key: 'userName', data: objData.userName })
+      wx.setStorage({ key: 'email', data: objData.email })
+      wx.setStorage({ key: 'avatar', data: objData.avatar })
+      wx.showToast({
+        title: "修改成功！",
+        icon:"none",
+        duration:2000,
+        mask:true,
+        success() {
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 2000)
+        }
+      })
+    // }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  //跳转
+  // pw: function () {
+  //   wx.navigateTo({
+  //     url: '/pages/author/change_password/index',
+  //   })
+  // },
+  // code: function () {
+  //   wx.navigateTo({
+  //     url: '/pages/author/code/index',
+  //   })
+  // }
+})

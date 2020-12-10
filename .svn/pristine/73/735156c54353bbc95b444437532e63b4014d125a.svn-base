@@ -1,0 +1,32 @@
+/* pages/author/change_password/index.wxss */
+.content {
+  position: relative;
+  margin: 0 28rpx;
+}
+
+.item {
+  display: flex;
+  padding: 30rpx;
+  font-size: 32rpx;
+  color: #1F1F1F;
+  font-weight: bold;
+  border-bottom: 1px solid #dcdcdd;
+}
+
+.item_right {
+  flex: 2;
+  align-self: center;
+  padding: 23rpx 0;
+}
+
+.item_left {
+  flex: 5;
+  align-self: center;
+  font-size: 30rpx;
+}
+
+.btn {
+  position: absolute;
+  margin: 0 45rpx;
+  padding-top: 208rpx;
+}

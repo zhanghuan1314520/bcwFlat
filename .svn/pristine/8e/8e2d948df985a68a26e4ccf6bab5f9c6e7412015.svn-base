@@ -1,0 +1,41 @@
+<view class="container">
+  <form bindsubmit='submit'>
+    <view class="content radius" wx:key="id">
+      <view class="item">
+        <view class="item_right">MAC</view>
+        <view class="item_left">
+          <!-- {{item.mac}} -->
+          88:BF:E4:48:57:8F
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">姓名</view>
+        <view class="item_left">
+          <input class="weui-input" name="studentName" value="{{studentName}}" placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">性别</view>
+        <view class="item_left">
+          <view>
+            <picker name="gender" bindchange="bindPickerChange" value="{{gender}}" range="{{array}}">
+              <view class="picker">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="time_two">
+          <image class="jt_img" src="../../../images/jt_left.png" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">学号</view>
+        <view class="item_left">
+          <input class="weui-input" name="studentCode" value="{{studentCode}}" placeholder="请输入学号" />
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <button class="buttons" style="width:516rpx;" form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

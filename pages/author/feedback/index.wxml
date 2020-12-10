@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="content">
+      <view class="nav radius">
+        <textarea placeholder="请输入你遇到的问题或建议..." maxlength="-1" bindinput="bindTextAreaBlur"></textarea>
+      </view>
+      <view class="btn">
+        <button style="width:516rpx;" class="buttons" id="btn" bindtap="send">发送</button>
+      </view>
+  </view>
+</view>

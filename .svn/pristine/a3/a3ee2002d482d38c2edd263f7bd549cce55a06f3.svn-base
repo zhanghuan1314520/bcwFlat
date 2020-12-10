@@ -1,0 +1,6 @@
+/* pages/author/about/index.wxss */
+.content{
+  margin: 30rpx 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}

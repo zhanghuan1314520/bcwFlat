@@ -1,0 +1,202 @@
+var mac = wx.getStorageSync('mac');
+import { request } from "../../request/index.js";
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    //时间段选择
+    arrayIndex: 0,
+    timeLockStartTime: '设置开始时间',
+    timeLockEndTime: '设置结束时间',
+    shows: false,
+    switch1:0,
+  },
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    // 获取浏览器数据
+    request({ url: "/deviceConfig/queryDeviceConfig?mac=88:BF:E4:48:57:8F" })
+    .then(result => {
+      console.log("根据mac查询设备配置",result.data);
+   ///deviceConfig/updateBrowserSetting    修改浏览器设置
+   if(result.data.networkHostingStatus==1){
+    var obj = {}
+    obj['switch1Checked1'] = true
+    this.setData(obj)
+    this.setData({
+      shows: true,
+      timeLockStartTime:result.data.browserAvailableStartTime,
+      timeLockEndTime:result.data.browserAvailableEndTime
+    });
+    this.timeLockStartTime=result.data.browserAvailableStartTime
+    this.timeLockEndTime=result.data.browserAvailableEndTime
+    this.switch1=1
+  }else {
+    var obj = {}
+    obj['switch1Checked1'] = false
+    this.setData(obj)
+  }
+
+    })
+
+  },
+   //开关
+   switch1Change: function (e) {
+    console.log(e);
+    this.setData({
+      shows: e.detail.value
+    });
+    if(e.detail.value==false){
+      this.switch1=0
+      wx.request({
+        url: 'https://pswanmor.edu505.com/api/deviceConfig/updateBrowserSetting',
+        method: "POST",
+        data: {
+          mac: "88:BF:E4:48:57:8F",
+          browserAvailableEndTime: "00:00:00",
+          browserAvailableStartTime: "00:00:00",
+          networkHostingStatus: this.switch1
+        },
+        success: (result) => {
+          console.log("修改娱乐时长设置", result.data);
+          wx.showToast({
+            title: '操作成功',
+            icon:"none",
+            duration:2000,
+            mask:true
+          })        
+        }
+      })
+  
+    }else {
+      this.switch1=1      
+    }
+    // wx.showToast({
+    //   title: '操作成功',
+    //   icon: "none",
+    //   duration: 2000,
+    //   mask:true
+    // })
+  },
+  //开始时间段选择
+  bindTimeChange: function (e) {
+    console.log(e);
+    console.log('当前的开始时间为', e.detail.value)
+    this.setData({
+      // 浏览器获取到标签的开始时间
+      timeLockStartTime: e.detail.value
+    })
+    this.timeLockStartTime=e.detail.value+":00"
+    console.log('timeLockEndTime', this.timeLockEndTime)
+    if(this.timeLockEndTime!=undefined){
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/updateBrowserSetting',
+      method: "POST",
+      data: {
+        mac: "88:BF:E4:48:57:8F",
+        browserAvailableEndTime: this.timeLockEndTime,
+        browserAvailableStartTime: this.timeLockStartTime,
+        networkHostingStatus: this.switch1
+      },
+      success: (result) => {
+        console.log("修改娱乐时长设置", result.data);
+        wx.showToast({
+          title: '操作成功',
+          icon:"none",
+          duration:2000,
+          mask:true
+        })   
+      }     
+    })
+  }
+  },
+   //结束时间段选择
+  bindTimeChange1: function (e) {
+    console.log(e);
+    console.log('当前的结束时间为', e.detail.value)
+    this.setData({
+      // 浏览器获取到标签的结束时间
+      timeLockEndTime: e.detail.value
+    })
+
+    this.timeLockEndTime=e.detail.value+":00"
+    console.log("当前结束选择的值为", this.timeLockEndTime);
+
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/updateBrowserSetting',
+      method: "POST",
+      data: {
+        mac: "88:BF:E4:48:57:8F",
+        browserAvailableEndTime: this.timeLockEndTime,
+        browserAvailableStartTime: this.timeLockStartTime,
+        networkHostingStatus: this.switch1
+      },
+      success: (result) => {
+        console.log("修改娱乐时长设置", result.data);
+        wx.showToast({
+          title: '操作成功',
+          icon:"none",
+          duration:2000,
+          mask:true
+        })        
+      }
+    })
+
+
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

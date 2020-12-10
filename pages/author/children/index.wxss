@@ -1,0 +1,80 @@
+/* pages/author/children/index.wxss */
+/* 标题部分开始 */
+.header{
+  display: flex;
+  margin: 40rpx 20rpx 20rpx 20rpx;
+}
+.header_title{
+  margin-left: 10rpx;
+  font-size: 28rox;
+}
+.header_img{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 标题部分结束 */
+/* 内容部分开始 */
+.content{
+  margin:20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  color: #000;
+  font-size: 30rpx;
+}
+.list{
+  background-color: #fff;
+  padding: 25rpx 20rpx;
+  display: flex;
+  align-self: center;
+  border-bottom: 1px solid #ccc;
+}
+.list:last-child{border:none}
+.list_left_img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.list_right{
+  flex: 15;
+  display: flex;
+  align-self: center;
+}
+.list_head{
+  flex: 1;
+  padding-top: 10rpx;
+}
+.list_nav{
+  flex: 6;
+  display: flex;
+  font-size: 25rpx;
+  color: #666;
+  align-self: center;
+}
+.list_name{
+  flex: 2;
+  align-self: center;
+}
+
+.list_head_img{
+  width: 50rpx;
+  height: 50rpx;
+}
+.list_nav_one{
+ flex: 2;
+ text-align: center;
+}
+.list_nav_two{
+  flex: 2;
+  text-align: center;
+}
+.list_nav_three{
+  flex: 3;
+}
+.list_left{
+  flex: 1;
+  padding-top: 10rpx;
+}
+.list_left_title{
+  padding-left: 20rpx;
+  font-size: 28rpx;
+}
+/* 内容部分结束 */

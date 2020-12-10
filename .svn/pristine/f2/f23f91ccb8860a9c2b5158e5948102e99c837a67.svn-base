@@ -1,0 +1,10 @@
+<view class="content">
+  <form  bindsubmit="formSubmit">
+    <view class="nav">
+      <textarea placeholder="请输入你遇到的问题或建议..."  value='{{concent}}' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"   bindblur='bindTextAreaBlur'   focus="{{focus}}" ></textarea>
+      </view>
+  <view class="btn">
+  <van-button round type="info" block  form-type="submit">发送</van-button>
+</view>
+</form>
+</view>

@@ -1,0 +1,103 @@
+<!-- <wxs src='../../utils/filter.wxs' module='filters' /> -->
+<view class='search'>
+  <input name="id" placeholder="请输入应用名称进行搜索" placeholder-style="color:#fff;" value="{{searchValue}}"
+    bindinput="searchValueInput" />
+  <button class='btn1' size='mini' data-value='3' bindtap="suo">搜索</button>
+</view>
+
+
+<view class="nav_title">
+  <view class="nav_tab">
+    <view wx:for="{{list}}" class="{{selected==index?'hidden':'show'}}" data-index='{{index}}' bindtap="selected"
+      wx:key="id">
+      {{item}}
+      <view class="{{selected==index?'nav_underline':''}}"></view>
+    </view>
+  </view>
+  <!-- tab框显示内容 -->
+  <view wx:if="{{selected == 0}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:red'>{{item.pushStatus}}</view>
+              <!-- <view style='color:{{filters.status(item.status).y}}'>{{filters.status(item.status).x}}</view> -->
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right"  data-id="{{ item.id }}"  bindtap="control">
+          <View class="btn">{{item.pushStatus == 0 ? '推送至平板':'从平板卸载'}}</View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 1}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:red'>{{item.pushStatus}}</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right"  data-id="{{ item.id }}"  bindtap="control">
+          <View class="btn">{{item.pushStatus == 0 ? '推送至平板':'从平板卸载'}}</View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 2}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item" wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:red'>{{item.pushStatus}}</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right" data-id="{{ item.id }}"  bindtap="control">
+          <View class="btn">{{item.pushStatus == 0 ? '推送至平板':'从平板卸载'}}</View>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{selected == 3}}">
+    <view class="list-table-view">
+      <view class="list-col-3 radius" wx:for="{{learn}}" wx:for-item="item"  wx:key="id">
+        <view class="list_left">
+          <view class="list_left_one">
+            <image class="img" mode="aspectFill" src="https://resources.edu505.com/{{item.iconPath}}" />
+          </view>
+          <view class="list_left_two">
+            <view class="title">{{item.appName}}</view>
+            <view class="tip">
+              <view style='color:red'>{{item.pushStatus}}</view>
+              <view style=" color:#9A9A9A; padding: 0 20rpx;">{{item.fileSize}}M</view>
+            </view>
+          </view>
+        </view>
+        <view class="list_right" data-id="{{ item.id }}" bindtap="control">
+          <View class="btn">{{item.pushStatus == 0 ? '推送至平板':'从平板卸载'}}</View>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

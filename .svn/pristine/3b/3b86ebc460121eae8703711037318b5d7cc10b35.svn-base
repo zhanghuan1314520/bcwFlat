@@ -1,0 +1,237 @@
+.content {
+  padding: 0 255rpx;
+  background-color: #4268EF;
+}
+
+.nav {
+  background-color: rgb(118, 160, 238);
+  padding: 6rpx 0;
+  border-radius: 30rpx;
+  border: 1px solid #fff;
+  font-size: 28rpx;
+}
+
+.time {
+  display: flex;
+  overflow: hidden;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.time_one {
+  flex: 2;
+  text-align: center;
+  align-self: center;
+  color: #fff;
+}
+
+.time_two {
+  flex: 1;
+  padding-top: 12rpx;
+}
+
+.times {
+  padding: 20rpx 0;
+  color: #fff;
+  text-align: center;
+  font-size: 23rpx;
+  background-color: #4268EF;
+}
+
+.times_title {
+  margin-top: 20rpx;
+}
+
+.times_tip {
+  display: flex;
+  padding: 20rpx 270rpx;
+}
+
+/* 图表部分开始 */
+.chart {
+  flex-direction: row;
+  padding: 50rpx 20rpx;
+  background-color: #4268EF;
+}
+
+.chart_item {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 20rpx;
+}
+
+.chart_item_one {
+  flex: 1;
+  height: 120rpx;
+  margin: 0 20rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  align-items: center;
+  background: #ED7A6B;
+}
+
+.chart_item_two {
+  flex: 1;
+  height: 160rpx;
+  margin: 0 20rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  background:#92E6AA;
+}
+
+.chart_item_three {
+  flex: 1;
+  height: 100rpx;
+  text-align: center;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  background: #F8D693;
+}
+
+.chart_item_m {
+  position: fixed;
+  top: 290rpx;
+  margin-left: 65rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.chart_item_name {
+  color: #000;
+  font-size: 22rpx;
+  margin-top: 70rpx;
+}
+
+.chart_item_m1 {
+  position: fixed;
+  top: 250rpx;
+  margin-left: 45rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.chart_item_name1 {
+  color: #000;
+  font-size: 22rpx;
+  margin-top: 110rpx;
+}
+
+.chart_item_m2 {
+  position: fixed;
+  top: 310rpx;
+  margin-left: 65rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.chart_item_name2 {
+  color: #000;
+  font-size: 22rpx;
+  margin-top: 50rpx;
+}
+/* bg */
+.bg{
+  margin-top: -20rpx;
+  width: 100%;
+  height: 100rpx;
+}
+.bg_img{
+  width: 100%;
+  height: 100rpx;
+}
+/* bg */
+
+/* 图表部分结束 */
+
+/* footer部分开始*/
+.footer {
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab1 {
+  width: 200rpx;
+  padding: 10rpx;
+  color: #999;
+  font-size: 28rpx;
+  padding: 15rpx 10rpx;
+  border: 1px solid #ccc;
+  border-radius: 30rpx;
+}
+
+.tab2 {
+  width: 200rpx;
+  padding: 10rpx;
+  color: #999;
+  font-size: 28rpx;
+  padding: 15rpx 10rpx;
+  border: 1px solid #ccc;
+  border-radius: 30rpx;
+  margin-left: 10rpx;
+}
+
+.top {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.top .active {
+  color: #fff;
+  background-color: #4268EF;
+  border: 1px solid #4268EF;
+}
+
+.record {
+  padding: 20rpx;
+}
+
+.statistics {
+  padding: 20rpx;
+}
+
+.table {
+  border: 0px solid darkgray;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 2rem;
+  align-items: center;
+  font-size: 20rpx;
+}
+
+.td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg-w {
+  background: snow;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #ccc;
+  color: #333;
+  display: flex;
+  height: 2rem;
+  align-items: center;
+  font-size: 25rpx;
+  font-weight: bold;
+}
+
+/* footer部分结束*/

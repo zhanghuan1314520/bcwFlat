@@ -1,0 +1,6 @@
+<view class="container2">
+  <view class="content radius">
+    <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
+  </view>
+</view>
+

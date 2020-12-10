@@ -1,0 +1,77 @@
+<view class="container ">
+  <view class="header radius">
+    <swiper  class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+      circular="{{circular}}">
+      <swiper-item wx:for="{{banners}}" wx:for-item="banner" wx:key="id">
+        <image class="imgs" src="{{banner.img}}" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 11 -->
+  <view class='case-page'>
+    <view class='list-masonry'>
+      <view class='item-masonry radius' bindtap="journal">
+        <view class="item-masonry-img">
+          <image src='../../images/yiliaohang222.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">行为日志</view>
+          <view class="item-masonry-view-tip">平板APP使用统计分析</view>
+        </view>
+      </view>
+      <!-- 2 -->
+      <view class='item-masonry radius' bindtap="time">
+        <view class="item-masonry-img">
+          <image src='../../images/shijianguanli.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">时间管理</view>
+          <view class="item-masonry-view-tip">有效管理平板使用时间</view>
+        </view>
+      </view>
+      <!-- 3 -->
+      <view class='item-masonry radius' bindtap="browser">
+        <view class="item-masonry-img">
+          <image src='../../images/liulanqi.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">浏览器</view>
+          <view class="item-masonry-view-tip">控制浏览器能否上网</view>
+        </view>
+      </view>
+      <!-- 4 -->
+      <view class='item-masonry radius'>
+        <view wx:if="{{shows==true}}" class="item-masonry-img">
+          <image src='../../images/suoping.png' mode='widthFix' />
+        </view>
+        <view wx:else="{{shows==false}}">
+          <image class="img_selected" src='../../images/guanbi.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">一键锁屏</view>
+          <switch bindchange="switch1Change" checked="{{switch1Checked}}"/>
+        </view>
+      </view>
+      <!-- 5 -->
+      <view class='item-masonry radius' bindtap="location">
+        <view class="item-masonry-img">
+          <image src='../../images/dingwei.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">实时定位</view>
+          <view class="item-masonry-view-tip">查看平板当前所在位置</view>
+        </view>
+      </view>
+      <!-- 6 -->
+      <view class='item-masonry radius' bindtap="inspect">
+        <view class="item-masonry-img">
+          <image src='../../images/chakan.png' mode='widthFix' />
+        </view>
+        <view class="item-masonry-view">
+          <view class="item-masonry-view-title">查看屏幕</view>
+          <view class="item-masonry-view-tip">平板当前屏幕拍照查看</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

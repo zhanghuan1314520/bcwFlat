@@ -1,0 +1,25 @@
+<view class="content">
+  <view class="item">
+    <view class="item_right">原始密码</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请输入原始密码" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">新密码</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请设置新密码" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_right">确认密码</view>
+    <view class="item_left">
+      <input class="weui-input" auto-focus placeholder="请重新输入密码" />
+    </view>
+  </view>
+</view>
+
+<!--按钮 -->
+<view class="btn">
+  <van-button round type="info" block>确认修改</van-button>
+</view>

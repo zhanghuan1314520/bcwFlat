@@ -1,0 +1,317 @@
+// pages/time/index.js
+import { request } from "../../request/index.js";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    shows: false,
+    shows1: false,
+    //时长选择
+    array: [
+      { id: 1, name: '默认30分钟' },
+      { id: 2, name: '60分钟' },
+      { id: 3, name: '90分钟' },
+      { id: 4, name: '120分钟' },
+      { id: 5, name: '150分钟' },
+      { id: 6, name: '180分钟' },
+      { id: 7, name: '210分钟' },
+    ],
+    index: 0,
+    //时间段选择
+    arrayIndex: 0,
+    time: '设置开始时间',
+    time1: '设置结束时间',
+    timeArr: [30, 60, 90, 120, 150, 180, 210],
+    switch1: 0,
+    switch2: 0
+  },
+  //开关
+  switch1Change: function (e) {
+    console.log(e)
+    console.log("e.detail.value:", e.detail.value)
+    this.setData({
+      shows: e.detail.value
+    });
+    if (e.detail.value == false) {//切换为关闭
+      this.switch1 = 0
+      let oper_mac = wx.getStorageSync('oper_mac')
+      wx.request({
+        url: 'https://pswanmor.edu505.com/api/deviceConfig/updateRecreationTime',
+        method: "POST",
+        data: {
+          mac: oper_mac,
+          recreationAvailableTime: 0,
+          recreationTimeStatus: this.switch1
+        },
+        success: (result) => {
+          console.log("修改娱乐时长设置", result.data);
+        }
+      })
+    } else {
+      this.switch1 = 1
+      let oper_mac = wx.getStorageSync('oper_mac')
+      wx.request({
+        url: 'https://pswanmor.edu505.com/api/deviceConfig/updateRecreationTime',
+        method: "POST",
+        data: {
+          mac: oper_mac,
+          recreationAvailableTime: 30,
+          recreationTimeStatus: this.switch1
+        },
+        success: (result) => {
+          console.log("修改娱乐时长设置", result.data);
+        }
+      })
+    }
+  },
+
+  switch1Change1: function (e) {
+    this.setData({
+      shows1: e.detail.value
+    });
+    if (e.detail.value == false) {//切换为关闭
+      this.switch2 = 0
+      let oper_mac = wx.getStorageSync('oper_mac')
+      wx.request({
+        url: 'https://pswanmor.edu505.com/api/deviceConfig/updateTimeLock',
+        method: "POST",
+        data: {
+          mac: oper_mac,
+          timeLockEndTime: "00:00:00",
+          timeLockStartTime: "00:00:00",
+          "timeLockStatus": this.switch2
+        },
+        success: (result) => {
+          console.log("修改娱乐时长设置", result.data);
+        }
+      })
+    } else {
+      this.switch2 = 1
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    let oper_mac = wx.getStorageSync('oper_mac')
+    console.log("oper_mac：", oper_mac);
+    request({ url: '/deviceConfig/queryDeviceConfig?mac=' + oper_mac })
+      .then(result => {
+        console.log("根据mac查询设备配置", result.data);
+        if (result.data.recreationTimeStatus == 1) {
+          var obj = {}
+          obj['switch1Checked'] = true
+          this.setData(obj)
+          this.setData({
+            shows: true
+          });
+          if (result.data.recreationAvailableTime == 30) {
+            this.setData({
+              index: 0
+            });
+          }
+          else if (result.data.recreationAvailableTime == 60) {
+            this.setData({
+              index: 1
+            });
+          }
+          else if (result.data.recreationAvailableTime == 90) {
+            this.setData({
+              index: 2
+            });
+          }
+          else if (result.data.recreationAvailableTime == 120) {
+            this.setData({
+              index: 3
+            });
+          }
+          else if (result.data.recreationAvailableTime == 150) {
+            this.setData({
+              index: 4
+            });
+          }
+          else if (result.data.recreationAvailableTime == 180) {
+            this.setData({
+              index: 5
+            });
+          }
+        } else {
+          var obj = {}
+          obj['switch1Checked'] = false
+          this.setData(obj)
+        }
+
+        //定时锁屏开关
+        if (result.data.timeLockStatus == 1) {
+          var obj = {}
+          obj['switch1Checked1'] = true
+          this.setData(obj)
+          this.setData({
+            shows1: true,
+            time: result.data.timeLockStartTime,
+            time1: result.data.timeLockEndTime
+          });
+          this.time = result.data.timeLockStartTime
+          this.time1 = result.data.timeLockEndTime
+          this.switch2 = 1
+        } else {
+          var obj = {}
+          obj['switch1Checked1'] = false
+          this.setData(obj)
+        }
+
+      })
+
+
+    // request({
+    //   url: '/deviceConfig/updateRecreationTime', method: "POST", header: { "content-type": "applicon/json" },
+    //   data: {
+    //     mac: "88:BF:E4:48:57:8F",
+    //     recreationAvailableTime: 60,
+    //     recreationTimeStatus: 1
+    //   }
+    // })
+    //   .then(result => {
+    //     console.log("修改娱乐时长设置", result.data);
+    //   })
+
+
+    //   wx.request({
+    //     url: 'https://pswanmor.edu505.com/deviceConfig/updateTimeLock',
+    //     method: "POST",
+    //     data:{},
+    //      success: (result)=> {
+    //        console.log("修改定时锁屏设置", result.data);
+    //      }
+    //  })
+  },
+
+  //开关
+  onChange1({ detail }) {
+    var that = this;
+    this.setData({ checked1: detail });
+    setTimeout(() => {
+      wx.showToast({
+        title: "操作成功",
+        icon: "none",
+        duration: 2000,
+        success: function () {
+        },
+        fail: function () { },
+      })
+    }, 1000)
+  },
+
+
+  //时长选择
+  bindPickerChange: function (e) {
+    var that = this;
+    // console.log('当前选择的值为:', e.detail.value)
+    console.log('当前选择的值为:', e);
+    //var timeArray = [30, 60, 90, 120, 150, 180, 210];
+    var recreationAvailableTime = that.data.timeArr[e.detail.value];
+    console.log('recreationAvailableTime:', recreationAvailableTime);
+
+    let oper_mac = wx.getStorageSync('oper_mac')
+    console.log("oper_mac：", oper_mac);
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/updateRecreationTime',
+      method: "POST",
+      data: {
+        mac: oper_mac,
+        recreationAvailableTime: recreationAvailableTime,
+        recreationTimeStatus: 1
+      },
+      success: (result) => {
+        console.log("修改娱乐时长设置", result.data);
+      }
+    })
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  //时间段选择
+  bindTimeChange: function (e) {
+    console.log("当前开始选择的值为", e);
+    this.setData({
+      time: e.detail.value
+    })
+    this.time = e.detail.value + ":00"
+  },
+  bindTimeChange1: function (e) {
+    console.log("当前结束选择的值为", e);
+    this.setData({
+      time1: e.detail.value
+    })
+    this.time1 = e.detail.value + ":00"
+    console.log("当前结束选择的值为", this.time1);
+
+    let oper_mac = wx.getStorageSync('oper_mac')
+
+    wx.request({
+      url: 'https://pswanmor.edu505.com/api/deviceConfig/updateTimeLock',
+      method: "POST",
+      data: {
+        mac: oper_mac,
+        timeLockEndTime: this.time1,
+        timeLockStartTime: this.time,
+        timeLockStatus: this.switch2
+      },
+      success: (result) => {
+        console.log("修改娱乐时长设置", result.data);
+      }
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

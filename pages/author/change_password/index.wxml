@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="content radius">
+    <form bindsubmit="formSubmit">
+      <view class="item">
+        <view class="item_right">原始密码</view>
+        <view class="item_left">
+          <input class="weui-input" password='true' name='oldpwd' value="{{oldpwd}}"  bindinput="oldpwdInput" maxlength="10" placeholder="请输入原始密码" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">新密码</view>
+        <view class="item_left">
+          <input class="weui-input" password='true' name='newpwd' value="{{newpwd}}" bindinput="newpwdInput" maxlength="10" placeholder="请设置新密码" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_right">确认密码</view>
+        <view class="item_left">
+          <input class="weui-input" password='true' name='newpwd2' value="{{newpwd2}}" bindinput="newpwd2Input"  maxlength="10" placeholder="请重新输入密码" />
+        </view>
+
+      </view>
+
+      <view class="">
+        <view class="btn">
+          <button style="width:516rpx;" class="buttons" form-type="submit">确认修改</button>
+        </view> 
+      </view>
+
+     
+    </form>
+  </view>
+</view>

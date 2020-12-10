@@ -1,0 +1,99 @@
+<view class='containers '>
+  <view class="content radius">
+    <view class="content_image">
+      <image class="content_img" src="https://i.loli.net/2020/10/21/ezIm26dyFn4YvLA.png" mode="aspectFill" />
+    </view>
+    <view class="content_title">不错家长管控</view>
+    <view class='top'>
+      <view class="{{login?'active':''}} tab " catchtap='login'>登录</view>
+      <view class="{{login?'':'active'}} tab " catchtap='register'>注册</view>
+    </view>
+    <!-- 登录部分开始 -->
+    <view wx:if="{{login}}">
+      <form  bindsubmit="logins">
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/shoujihao.png" />
+          </view>
+          <view class="content_form_two"><input id="phone1" name="login_phone"  value="{{login_phone}}"  type="number" placeholder="请输入手机号" bindinput="phoneInput" />
+          </view>
+        </view>
+        <!-- 密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/s.png" />
+          </view>
+          <view class="content_form_two"><input id="password"  name="login_password"  value="{{login_password}}"  password placeholder="请输入密码" bindinput="pswInput" />
+          </view>
+        </view>
+        <view class="btn">
+          <button class="buttonss" style="width: 516rpx;" id="bn" form-type='submit'>登录</button>
+        </view>
+
+        <view class="footer">
+          <view class="footer_right">
+            <checkbox-group class="t" bindchange="niming">
+              <view class="tongyi_t">
+                <checkbox id="box_check" value="{{if_rem_user}}" />
+              </view>
+              <view class="tongyi" bindtap="service_agreement">阅读并同意<text
+                  style="padding-left:10rpx;color:#377FF7;font-size: 24rpx;">《服务协议》</text></view>
+            </checkbox-group>
+          </view>
+          <view class="footer_left" bindtap="forget">忘记密码？</view>
+        </view>
+      </form>
+    </view>
+    <!-- 登录部分结束 -->
+    <!-- 注册部分开始 -->
+    <view wx:else>
+      <form>
+        <!-- 手机号 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/shoujihao.png" />
+          </view>
+          <view class="content_form_two">
+            <input id="phonenumber" type="number" placeholder="请输入手机号" bindinput="phonenumberInput" />
+          </view>
+        </view>
+        <!-- 验证码 -->
+        <!-- <view class="content_form">
+          <view class="content_form_one1">
+            <image class="img" src="../../images/icon01.png" />
+          </view>
+          <view class="content_form_two1">
+            <view class="content_form_two_right"><input type="text" maxlength="4" bindinput="handleVerificationCode"
+                placeholder="请输入验证码" /></view>
+            <view class="content_form_two_left">
+              <button class='button1' bindtap='doGetCode' disabled='{{disabled}}'
+                style=" background-color:{{color}}">{{text}}</button>
+            </view>
+          </view>
+        </view> -->
+        <!-- 设置密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/s.png" />
+          </view>
+          <view class="content_form_two"><input id="psw" type="password" placeholder="请输入密码"
+              bindinput="passwordInput" />
+          </view>
+        </view>
+        <!-- 确认密码 -->
+        <view class="content_form">
+          <view class="content_form_one">
+            <image class="img" src="../../images/s.png" />
+          </view>
+          <view class="content_form_two"><input id="pswack" type="password" placeholder="请确认密码"
+              bindinput="passwordInputAck" /></view>
+        </view>
+        <view class="btn">
+          <button class="buttonss" style="width: 516rpx;" id="btn" bindtap="regist">注册并登录</button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <!-- 注册部分结束 -->
+</view>

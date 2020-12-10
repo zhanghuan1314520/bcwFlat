@@ -1,0 +1,165 @@
+// pages/author/children_details/index.js
+var mac = wx.getStorageSync('mac');
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    array: ['女', '男'],
+    index: 0,
+    childrens: [],
+    studentName: "",
+    gender: "",
+    studentCode: ""
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log("--options--",options)
+    var that = this;
+    var code = wx.getStorageSync('code');
+    var mac = wx.getStorageSync('mac');
+    console.log("这是传过来手机号------>", code)
+    // 记录输入的数据
+    wx.getStorage({
+      key: 'studentName',
+      success: function (res) {
+        console.log("姓名------>", res.data)
+        that.setData({ studentName: res.data })
+      },
+    })
+    wx.getStorage({
+      key: 'gender',
+      success: function (res) {
+        console.log("性别----->", res.data)
+        that.setData({ gender: res.data })
+      },
+    })
+
+    wx.getStorage({
+      key: 'studentCode',
+      success: function (res) {
+        console.log("学号------>", res.data)
+        that.setData({ studentCode: res.data })
+      },
+    })
+  },
+
+  //性别选择
+  bindPickerChange: function (e) {
+    console.log('当前选择的值为:', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  submit: function (e) {
+    var that = this;
+    console.log(e)
+    console.log(e.detail.value);
+    //表单数据
+    var objData = e.detail.value;
+    if (objData.studentName && objData.gender && objData.studentCode) {
+      //异步方式储存表单数据
+      wx.setStorage({
+        key: 'studentName',
+        data: objData.studentName,
+      })
+      wx.setStorage({
+        key: 'gender',
+        data: objData.gender,
+      })
+      wx.setStorage({
+        key: 'studentCode',
+        data: objData.studentCode,
+      })
+    }
+    wx.request({
+      // url: 'https://pswanmor.edu505.com/api/device/updateDeviceInfo?gender=1&mac=20:75:55:39:01:42&name=1111&studentCode=222',
+      url: 'https://pswanmor.edu505.com/api/device/updateDeviceInfo',
+      data: {
+        gender: 1,
+        mac: "20:75:55:39:01:42",
+        name: "嘿嘿",
+        studentCode: 12345
+      },
+      method: "POST",
+      success: (res) => {
+        //  console.log(res.data.data[0].mac);
+         // app.globalData.mac = res.data.data[0].mac
+         // wx.setStorageSync('mac',res.data.data[0].mac); //将openid存入本地缓存
+        console.log("修改设备信息", res);
+      }
+    })
+    wx.showToast({
+      title: '修改成功',
+      icon: "none",
+      duration: 2000,
+      success() {
+        setTimeout(() => {
+         wx.switchTab({
+           url: '/pages/my/index',
+         })
+        }, 2000)
+      }
+    })
+  },
+
+
+  studentName: function (e) {
+    this.data.studentName = e.detail.value
+  },
+  studentCode: function (e) {
+    this.data.sstudentCode = e.detail.value
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})
